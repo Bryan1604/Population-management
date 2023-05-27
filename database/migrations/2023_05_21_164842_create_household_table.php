@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('household', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->integer('idOwner');
+            $table->integer('owner_id');
             $table->String('address');
             $table->integer('quantity');
             $table->timestamps();

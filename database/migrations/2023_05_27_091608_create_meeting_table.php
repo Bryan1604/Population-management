@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tam_tru', function (Blueprint $table) {
+        Schema::create('meeting', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->date('date');
+            $table-> dateTime('time');
+            $table->string('place');
+            $table->string('title');
+            $table->integer('number_of_paticipants');
+            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tam_tru');
+        Schema::dropIfExists('meeting');
     }
 };

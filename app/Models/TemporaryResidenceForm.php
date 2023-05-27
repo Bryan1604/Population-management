@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tamtru extends Model
+class TemporaryResidenceForm extends Model
 {
     use HasFactory;
-
-    protected $table = 'tamtru';
+    protected $table = "temporary_residence_form";
     protected $fillable = [
         'id',
-        'date'
+        'identify_number',
+        'note'
     ];
 }

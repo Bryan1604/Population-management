@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tam_vang', function (Blueprint $table) {
+        Schema::create('participate_meeting_form', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->date('date');
+            $table->integer('meeting_id');
+            $table->integer('people_id');
+            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tam_vang');
+        Schema::dropIfExists('participate_meeting_form');
     }
 };

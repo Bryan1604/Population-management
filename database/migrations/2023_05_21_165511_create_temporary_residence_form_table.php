@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('manager', function (Blueprint $table) {
-            $table->id();
-            $table-> string('full_name');
-            $table->string('email');
-            $table->string('password');
+        // tam tru
+        Schema::create('temporary_residence_form', function (Blueprint $table) {
+            $table->id()->autoIncrement();
+            $table->string('identify_number',12);
+            $table->string('note');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('manager');
+        Schema::dropIfExists('temporaryResidenceForm');
     }
 };

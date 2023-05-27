@@ -15,23 +15,25 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->integer('idHousehold'); // id ho khau 
+            $table->integer('household_id'); // id ho khau 
             $table->String('fullname');
             $table->String('sex');  // nen la luu o dang bool hoac int ( 0:nam, 1: nu)
             $table->date('birthday');
-            $table->String('placeOfBirth');
+            $table->String('place_of_birth');
             $table->String('ethnic');
             $table->String('job');
             $table->String('office');
-            $table->String('identifyNumber');  // thuc te la 1 chuoi so dinh danh ca nhan 
-            $table->String('receivedIDCardPlaceAndTime');
-            $table->String('phoneNumber');
-            $table->String('originalPlace'); // la 'nguyen quan' khac voi 'place of birth'
-            $table->date('tgianDkThuongTru'); // thoi gian dang ki thuoong tru
+            $table->String('identify_number');  // thuc te la 1 chuoi so dinh danh ca nhan 
+            $table->String('received_IDCard_place');
+            $table->date('recieved_IDCard_time');
+            $table->String('phone_number');
+            $table->String('domicile'); // la 'nguyen quan' khac voi 'place of birth'
+           // $table->date('tgianDkThuongTru'); // thoi gian dang ki thuoong tru
             $table->String('addressBefore'); // noi o truoc do
-            $table->String('relationshipWithOwner'); // quan he voi chu ho // cos thể dùng string hoặc int 
+            $table->String('household_owner_relationship'); // quan he voi chu ho // cos thể dùng string hoặc int 
+            $table->integer('state');   // 0: nguoi co ho khau, 1:co ho khau va tam vang, 2:- nguoi tam tru
             $table->String('note');
-            $table->timestamps('');
+            $table->timestamps('');  // thoi gian tao ho khau la truong created-time-at trong db
         });
     }
 
