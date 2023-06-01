@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
 
 class TemporaryResidenceForm extends Model
 {
@@ -11,7 +13,12 @@ class TemporaryResidenceForm extends Model
     protected $table = "temporary_residence_form";
     protected $fillable = [
         'id',
-        'identify_number',
+        'people_id',
         'note'
     ];
+
+    public function people():HasOne
+    {
+        return $this->hasOne(People::class);
+    }
 }

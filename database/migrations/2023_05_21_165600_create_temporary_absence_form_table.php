@@ -16,7 +16,7 @@ return new class extends Migration
         // tam vang
         Schema::create('temporary_absence_form', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('identify_number',12);
+            $table->integer('people_id');
             $table->date('move_time');
             $table->string('move_place');
             $table->timestamps();

@@ -29,7 +29,7 @@ return new class extends Migration
             $table->String('phone_number');
             $table->String('domicile'); // la 'nguyen quan' khac voi 'place of birth'
            // $table->date('tgianDkThuongTru'); // thoi gian dang ki thuoong tru
-            $table->String('addressBefore'); // noi o truoc do
+            $table->String('address_before'); // noi o truoc do
             $table->String('household_owner_relationship'); // quan he voi chu ho // cos thể dùng string hoặc int 
             $table->integer('state');   // 0: nguoi co ho khau, 1:co ho khau va tam vang, 2:- nguoi tam tru
             $table->String('note');
