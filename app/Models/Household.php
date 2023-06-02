@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
+
 
 class Household extends Model
 {
@@ -12,10 +16,19 @@ class Household extends Model
     protected $table = 'household';
     protected $fillable =[
         'id',
-        'idOwner',
+        'owner_id',
         'address',
         'quantity'
     ];
 
+    public function people():BelongsTo
+    {
+        return $this->belongsTo(People::class);
+    }
+
+    public function owner():HasOne
+    {
+        return $this->hasOne(People::class, $this->owner_id);
+    }
     // add relational 
 }
