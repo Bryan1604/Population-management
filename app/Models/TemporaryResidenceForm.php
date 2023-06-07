@@ -12,7 +12,6 @@ class TemporaryResidenceForm extends Model
     use HasFactory;
     protected $table = "temporary_residence_form";
     protected $fillable = [
-        'id',
         'people_id',
         'note'
     ];

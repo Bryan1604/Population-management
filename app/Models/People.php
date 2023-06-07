@@ -13,7 +13,6 @@ class People extends Model
 
     protected $table = "people";
     protected $fillable = [
-        'id',
         'household_id',
         'fullname',
         'sex',

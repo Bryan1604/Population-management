@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->integer('household_id'); // id ho khau 
             $table->String('fullname');
-            $table->String('sex');  // nen la luu o dang bool hoac int ( 0:nam, 1: nu)
+            $table->integer('sex');  // nen la luu o dang bool hoac int ( 0:nam, 1: nu)
             $table->date('birthday');
             $table->String('place_of_birth');
             $table->String('ethnic');

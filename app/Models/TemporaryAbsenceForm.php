@@ -13,7 +13,6 @@ class TemporaryAbsenceForm extends Model
     
     protected $table = 'temporary_absence_form';
     protected $fillable = [
-        'id',
         'people_id',
         'move_place',
         'move_time'

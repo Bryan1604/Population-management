@@ -15,7 +15,6 @@ class Household extends Model
 
     protected $table = 'household';
     protected $fillable =[
-        'id',
         'owner_id',
         'address',
         'quantity'
