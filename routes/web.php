@@ -26,5 +26,5 @@ Route::get('/home',function(){
 });
 
 Route::get('/content',function(){
-    return view('pages.house_hold');
+    return view('pages.house_hold_list');
 });
