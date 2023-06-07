@@ -1,0 +1,106 @@
+.page_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
+}
+.page_header .logo {
+  justify-content: center;
+  display: inline-block;
+}
+.page_header .logo .logo_img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.page_header .page_title {
+  margin: 0 auto;
+}
+.page_header .page_title h1 {
+  margin: 0px;
+  font-weight: 600;
+  font-size: 32px;
+  flex: 2;
+}
+
+/*Menubar sass*/
+.nav_menu {
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  align-items: center;
+  max-width: 320px;
+}
+.nav_menu .nav_menu__heading {
+  padding: 24px 60px 36px 60px;
+  color: #141414;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.nav_menu .nav_menu_items {
+  list-style: none;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 50px 10px 40px 10px;
+  border-radius: 20px;
+  padding-left: 0px;
+}
+.nav_menu .nav_menu_items .item_actived {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+.nav_menu .nav_menu_items li {
+  padding: 14px 0px 14px 20px;
+}
+.nav_menu .nav_menu_items li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #141414;
+}
+.nav_menu .nav_menu_items li:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+.nav_menu .user_type {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin: 10px;
+}
+.nav_menu .user_type p {
+  padding: 10px 20px 10px 20px;
+  color: #141414;
+  text-decoration: none;
+}
+
+.content_container {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+body {
+  background-color: #BF517C;
+}
+body .container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+body .main {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=app.css.map */

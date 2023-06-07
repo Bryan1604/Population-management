@@ -24,3 +24,7 @@ Route::get('/people', function () {
 Route::get('/home',function(){
     return view('layouts.main');
 });
+
+Route::get('/content',function(){
+    return view('pages.house_hold');
+});
