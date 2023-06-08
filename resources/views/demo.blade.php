@@ -23,6 +23,6 @@
             console.log(jsonData);
         </script>
 -->
-        <h5>{!! nl2br(e($data)) !!}</h5>
+        <h5>{{$data}}</h5>
     </body>
 </html>
