@@ -1,7 +1,8 @@
 <?php
 
+use App\Models\TemporaryResidenceForm;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TemporaryResidenceFormController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,5 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/people', function () {
+    
     return view('pages/people/people');
 });
+
+Route::get('/demo',[TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('demo');

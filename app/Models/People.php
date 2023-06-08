@@ -49,7 +49,7 @@ class People extends Model
         return $this->belongsTo(TemporaryAbsenceForm::class);
     }
 
-    public function temporaryResidenceForm():BelongsTo
+    public function temporaryResidenceForm()
     {
         return $this->belongsTo(TemporaryResidenceForm::class);
     }

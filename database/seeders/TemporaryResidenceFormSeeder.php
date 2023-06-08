@@ -16,4 +16,9 @@ class TemporaryResidenceFormSeeder extends Seeder
     {
         TemporaryResidenceForm::factory()->count(5)->create();
     }
+
+    // public function getDateFormat()
+    // {
+    //     return 'Y-m-d H:i:s'; // Customize the date format here
+    // }
 }

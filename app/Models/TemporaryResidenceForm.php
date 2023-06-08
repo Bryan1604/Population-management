@@ -16,7 +16,7 @@ class TemporaryResidenceForm extends Model
         'note'
     ];
 
-    public function people():HasOne
+    public function people()
     {
         return $this->hasOne(People::class);
     }
