@@ -1,0 +1,37 @@
+@import "partials/header";
+@import "partials/sidebar";
+@import "pages/house_hold_list";
+@import "pages/house_hold_detail";
+@import "pages/house_hold_create";
+@import "pages/people_detail";
+@import "pages/staying_detail";
+@import "pages/form";
+@import "pages/staying_absent_direction";
+@import "pages/meeting_manage";
+@import "pages/dashboard";
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body {
+    background-color: #BF517C;
+
+    .container {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    .main {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}
+
+
+

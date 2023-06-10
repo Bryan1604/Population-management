@@ -1,0 +1,75 @@
+.content_container{
+    .content_control{
+        .control_btn{
+            display: flex;
+            gap: 10px;
+        }
+    }
+}
+
+.detail_info{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+
+    .head_of_house_hold{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        gap: 40px;
+        border-right: 1px solid #ffffff;
+
+        .avt_img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgb(255, 221, 221);
+        }
+
+        .head-of-house-hold-info{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .info{
+                label, span{
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+                label{
+                    color: #141414;
+                }
+                span{
+                    color: #ffebeb;
+                }
+            }
+        }
+    }
+
+    .house_hold_members{
+        padding: 0px 20px 0px 40px;
+
+        h1{
+            font-size: 24px;
+            font-weight: 700;
+            color: #141414;
+        }
+        ul{
+            list-style-type: none;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            li{
+                font-size: 16px;
+                font-weight: 600;
+                a{
+                    text-decoration: none;
+                    color: #ffebeb;
+                }
+            }
+        }
+    }
+}
