@@ -5,7 +5,7 @@
         <div class="content_control">
             <x-search-bar/>
             <?php
-            $message = "Thêm hộ khẩu";
+            $message = "Thêm nhân khẩu";
             $type = "primary_button";
             ?>
             <x-button :message="$message" :type="$type"/>

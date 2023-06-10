@@ -1,6 +1,14 @@
 @import "partials/header";
 @import "partials/sidebar";
-@import "pages/house_hold";
+@import "pages/house_hold_list";
+@import "pages/house_hold_detail";
+@import "pages/house_hold_create";
+@import "pages/people_detail";
+@import "pages/staying_detail";
+@import "pages/form";
+@import "pages/staying_absent_direction";
+@import "pages/meeting_manage";
+@import "pages/dashboard";
 
 * {
     box-sizing: border-box;

@@ -1,0 +1,63 @@
+.detail_info{
+
+    .left_col_info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        gap: 40px;
+        border-right: 1px solid #ffffff;
+
+        .avt_img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgb(255, 221, 221);
+        }
+
+        .people-info{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .info{
+                label, span{
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+                label{
+                    color: #141414;
+                }
+                span{
+                    color: #ffebeb;
+                }
+            }
+
+            .choose_info
+            {
+                display: flex;
+                gap: 10px;
+                label{
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .right_col_info{
+        padding-left: 40px;
+        .info{
+            margin: 4px 0px 4px 0px;
+            label, span{
+                font-size: 16px;
+                font-weight: 600;
+            }
+            label{
+                color: #141414;
+            }
+            span{
+                color: #ffebeb;
+            }
+        }
+    }
+}

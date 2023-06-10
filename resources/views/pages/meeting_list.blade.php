@@ -5,7 +5,7 @@
         <div class="content_control">
             <x-search-bar/>
             <?php
-            $message = "Thêm hộ khẩu";
+            $message = "Thêm Cuộc Họp";
             $type = "primary_button";
             ?>
             <x-button :message="$message" :type="$type"/>
@@ -15,10 +15,10 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Mã hộ khẩu</th>
-                    <th>Tên chủ hộ</th>
-                    <th>Số thành viên</th>
-                    <th>Địa chỉ</th>
+                    <th>Số Thứ tự</th>
+                    <th>Chủ đề sinh hoạt</th>
+                    <th>Thời gian</th>
+                    <th>Địa điểm</th>
                     <th>Ngày tạo</th>
                     <th>Thao tác</th>
                 </tr>

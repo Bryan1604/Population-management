@@ -1,0 +1,18 @@
+.content_container{
+    .chart_container_up{
+        display: flex;
+        gap: 10px;
+        .population_change_chart{
+            margin-top: 10px;
+        }
+        .population_classification{
+            margin-top: 10px;
+
+        }
+    }
+    .chart_container_down{
+        .gender_chart{
+            margin-top: 10px;
+        }
+    }
+}

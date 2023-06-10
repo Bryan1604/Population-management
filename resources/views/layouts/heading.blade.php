@@ -9,6 +9,10 @@
     <link href="{{ asset('app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+    {{--chart--}}
+    @include('layouts/pie_chart')
+    @include('layouts/line_chart')
+    @include('layouts/column_chart')
 </head>
 
 <body>
