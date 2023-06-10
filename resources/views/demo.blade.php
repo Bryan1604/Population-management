@@ -18,11 +18,13 @@
         <![endif]-->
         
         <!--
-        <script>
-            var jsonData = JSON.parse('{{ $data }}');
-            console.log(jsonData);
-        </script>
--->
-        <h5>{{$data}}</h5>
+        
+
+       
+        -->
+        
+
+        <h5>{{$infoDetail->fullname}}</h5>
+        
     </body>
 </html>

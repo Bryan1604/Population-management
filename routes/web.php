@@ -19,8 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('/people', function () {
-    
     return view('pages/people/people');
 });
 
 Route::get('/demo',[TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('demo');
+Route::get('/demo/{id}', [TemporaryResidenceFormController::class, 'getInfoDetails'])->name('demo');
+

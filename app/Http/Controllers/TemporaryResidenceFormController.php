@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TemporaryAbsenceForm;
 use App\Models\TemporaryResidenceForm;
 use App\Models\People;
+
 class TemporaryResidenceFormController extends Controller
 {
     public function getTemporaryResidenceForm(){
@@ -25,5 +26,21 @@ class TemporaryResidenceFormController extends Controller
         $jsonData = json_encode($trd);
 
         return view('demo',['data'=>$jsonData]);
+    }
+
+    public function getInfoDetails(Request $request, $id){
+        if($request){
+            $info = TemporaryResidenceForm::find($id);
+
+            if ($info) {
+                $infoDetail = People::find($info->people_id);
+                return view('demo', ['infoDetail' => $infoDetail]);
+            } else {
+                return view('demo', ['infoDetail' => "no data"]);
+            }
+        }else{
+            return view('demo', ['infoDetail' => "no request"]);
+        }
+      
     }
 }
