@@ -24,21 +24,22 @@
                 <div class="people-info">
                     <div class="info">
                         <label>Họ và tên:</label>
-                        <span>Nguyễn Văn A</span>
+                        <span>{{$people_detail->fullname}}</span>
                     </div>
                     <div class="info">
                         <label>Mã định danh: </label>
-                        <span>01234566787</span>
+                        <span>{{$people_detail->identify_number}}</span>
                     </div>
                     <div class="info">
                         <label>Ngày sinh: </label>
-                        <span>01/12/2112</span>
+                        <span>{{$people_detail->birthday}}</span>
                     </div>
                     <div class="info choose_info">
                         <label>Thông tin cư trú: </label>
                         <div class="radio_input">
                             <input type="radio" id="none" name="people_type" value="Không">
                             <span>Không</span>
+                            
                         </div>
                         <div class="radio_input">
                             <input type="radio" id="tamVang" name="people_type" value="Tạm vắng">
@@ -54,27 +55,31 @@
             <div class="right_col_info">
                 <div class="info">
                     <label>Nơi sinh: </label>
-                    <span>Hai Bà Trưng</span>
+                    <span>{{$people_detail->place_of_birth}}</span>
                 </div>
                 <div class="info">
                     <label>Nơi cấp CCCD: </label>
-                    <span>Hai Bà Trưng</span>
+                    <span>{{$people_detail->received_IDCard_place}}</span>
                 </div>
                 <div class="info">
                     <label>Ngày cấp: </label>
-                    <span>01/12/2112</span>
+                    <span>{{$people_detail->recieved_IDCard_time}}</span>
                 </div>
                 <div class="info">
                     <label>Nguyên Quán: </label>
-                    <span>Hai Bà Trưng, Hà Nội</span>
+                    <span>{{$people_detail->domicile}}</span>
                 </div>
                 <div class="info">
                     <label>Nơi ở trước đó (trường hợp tạm trú): </label>
-                    <span>Không</span>
+                    @if ($people_detail->state == 2)
+                        <span>{{$people_detail->address_before}}</span>
+                    @else
+                        <span>Không</span>
+                    @endif
                 </div>
                 <div class="info">
                     <label>Dân tộc: </label>
-                    <span>Kinh</span>
+                    <span>{{$people_detail->ethnic}}</span>
                 </div>
                 <div class="info">
                     <label>Tôn giáo: </label>
@@ -86,11 +91,11 @@
                 </div>
                 <div class="info">
                     <label>Số điện thoại: </label>
-                    <span>0234 234 234</span>
+                    <span>{{$people_detail->phone_number}}</span>
                 </div>
                 <div class="info">
                     <label>Ghi chú thêm: </label>
-                    <span>Không</span>
+                    <span>{{$people_detail->note}}</span>
                 </div>
             </div>
         </div>

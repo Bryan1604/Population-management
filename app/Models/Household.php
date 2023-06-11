@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-
-
 class Household extends Model
 {
     use HasFactory;
@@ -22,12 +20,12 @@ class Household extends Model
 
     public function people():BelongsTo
     {
-        return $this->belongsTo(People::class);
+        return $this->belongsTo(People::class,'household_id','id');
     }
 
     public function owner():HasOne
     {
-        return $this->hasOne(People::class, $this->owner_id);
+        return $this->hasOne(People::class,'id' ,'owner_id');
     }
     // add relational 
 }

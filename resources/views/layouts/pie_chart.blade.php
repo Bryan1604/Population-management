@@ -4,12 +4,11 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-
         var data = google.visualization.arrayToDataTable([
             ['Type', 'number of population'],
-            ['Dân cư có hộ khẩu',     4050],
-            ['Dân cư tạm trú',      250],
-            ['Dân cư tạm vắng',  709]
+            ['Dân cư có hộ khẩu',    "{{$data[0]}}"*100/100],
+            ['Dân cư tạm trú',      "{{$data[2]}}"*100/100],
+            ['Dân cư tạm vắng',  "{{$data[1]}}"*100/100]
         ]);
 
         var options = {

@@ -24,21 +24,20 @@
                 <div class="head-of-house-hold-info">
                     <div class="info">
                         <label>Họ và tên:</label>
-                        <span>Nguyễn Văn A</span>
+                        <span>{{$household_detail->owner->fullname}}</span>
                     </div>
                     <div class="info">
                         <label>Địa chỉ:</label>
-                        <span>Thôn 1, xã 1, huyện 1, tỉnh 1</span>
+                        <span>{{$household_detail->address}}</span>
                     </div>
                 </div>
             </div>
             <div class="house_hold_members">
                 <h1>THÀNH VIÊN HỘ GIA ĐÌNH</h1>
                 <ul>
-                    <li><a href="#">Nguyễn Văn A</a></li>
-                    <li><a href="#">Nguyễn Văn A</a></li>
-                    <li><a href="#">Nguyễn Văn A</a></li>
-                    <li><a href="#">Nguyễn Văn A</a></li>
+                    @foreach($member_list as $member)
+                    <li><a href="#">{{$member->fullname}}</a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>

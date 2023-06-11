@@ -20,7 +20,7 @@ class PeopleFactory extends Factory
     public function definition()
     {
             return [
-                'household_id' => $this->faker->numberBetween(10),
+                'household_id' => $this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
                 'fullname' => $this->faker->name,
                 'sex' => $this->faker->randomElement([0, 1]),
                 'birthday' => $this->faker->date,

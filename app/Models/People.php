@@ -36,7 +36,7 @@ class People extends Model
     // add realational 
     public function household(): HasOne
     {
-        return $this->hasOne(Household::class);
+        return $this->hasOne(Household::class,'id','household_id');
     }
 
     public function isOwner(): BelongsTo      // tra ve ho khau ma mk la chu 
