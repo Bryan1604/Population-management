@@ -40,9 +40,9 @@ Route::get('/household/add', function () {
     return view('pages/house_hold_create');
 });
 
-// Route::get('/people/list', function () {
-//     return view('pages/people_list');
-// });
+Route::get('/people/list', function () {
+    return view('pages/people_list');
+});
 Route::get('people/detail/{id}', [PeopleController::class,'getPeopleDetail'])->name('pages/people_detail');
 
 
