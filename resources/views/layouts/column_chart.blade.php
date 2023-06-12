@@ -8,18 +8,18 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
         ['Month', 'Male', 'Female'],
-        ['1', "{{$genderData[0]['men']}}", "{{$genderData[0]['women']}}"],
-        ['2', "{{$genderData[1]['men']}}", "{{$genderData[1]['women']}}"],
-        ['3', "{{$genderData[2]['men']}}", "{{$genderData[2]['women']}}"],
-        ['4', "{{$genderData[3]['men']}}", "{{$genderData[3]['women']}}"],
-        ['5', "{{$genderData[4]['men']}}", "{{$genderData[4]['women']}}"],
-        ['6', "{{$genderData[5]['men']}}", "{{$genderData[5]['women']}}"],
-        ['7', "{{$genderData[6]['men']}}", "{{$genderData[6]['women']}}"],
-        ['8', "{{$genderData[7]['men']}}", "{{$genderData[7]['women']}}"],
-        ['9', "{{$genderData[8]['men']}}", "{{$genderData[8]['women']}}"],
-        ['10', "{{$genderData[9]['men']}}", "{{$genderData[9]['women']}}"],
-        ['11', "{{$genderData[10]['men']}}", "{{$genderData[10]['women']}}"],
-        ['12', "{{$genderData[11]['men']}}", "{{$genderData[11]['women']}}"]
+        ['1', 1000, 400],
+        ['2', 1170, 800],
+        ['3', 1009, 1120],
+        ['4', 1030, 1100],
+        ['5', 980, 1000],
+        ['6', 800, 950],
+        ['7', 1030, 890],
+        ['8', 1000, 1000],
+        ['9', 1030, 960],
+        ['10', 1160, 1200],
+        ['11', 1280, 1370],
+        ['12', 1400, 1506]
     ]);
 
     var options = {
