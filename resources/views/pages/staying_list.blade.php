@@ -4,146 +4,36 @@
     <div class="content_container">
         <div class="content_control">
             <x-search-bar/>
-            <?php
-            $message = "Thêm nhân khẩu tạm trú";
-            $type = "primary_button";
-            ?>
-            <x-button :message="$message" :type="$type"/>
+            <a href="{{ url('staying/add') }}" class="primary_button">Thêm nhân khẩu tạm trú</a>
         </div>
 
         <div class="table_of_contents">
             <table>
                 <thead>
                 <tr>
-                    <th>Mã hộ khẩu</th>
-                    <th>Tên chủ hộ</th>
-                    <th>Số thành viên</th>
-                    <th>Địa chỉ</th>
-                    <th>Ngày tạo</th>
+                    <th>Thời gian</th>
+                    <th>Họ và tên </th>
+                    <th>CCCD/CMT</th>
+                    <th>Địa chỉ trước đó</th>
+                    <th>Địa chỉ hiện tại</th>
                     <th>Thao tác</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($data as $item)
                 <tr>
-                    <td>1</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>123 Nguyễn Văn A</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
+                    <td>{{$item->created_at->format('Y-m-d')}}</td>
+                    <td>{{$item->people->fullname}}</td>
+                    <td>{{$item->people->identify_number}}</td>
+                    <td>{{$item->people->address_before}}</td>
+                    <td>Viet nam</td>
                     <td>
-                        <a href="#" class="primary_button">Xem</a>
+                        <a href="{{url('staying/detail/'.$item->id)}}" class="primary_button">Xem</a>
                         <a href="#" class="primary_button">Sửa</a>
                         <a href="#" class="primary_button">Xóa</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Nguyễn Văn B</td>
-                    <td>123 Nguyễn Văn B</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nguyễn Văn C</td>
-                    <td>123 Nguyễn Văn C</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nguyễn Văn C</td>
-                    <td>123 Nguyễn Văn C</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nguyễn Văn C</td>
-                    <td>123 Nguyễn Văn C</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nguyễn Văn C</td>
-                    <td>123 Nguyễn Văn C</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nguyễn Văn C</td>
-                    <td>123 Nguyễn Văn C</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nguyễn Văn C</td>
-                    <td>123 Nguyễn Văn C</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nguyễn Văn C</td>
-                    <td>123 Nguyễn Văn C</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nguyễn Văn C</td>
-                    <td>123 Nguyễn Văn C</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                    </td>
-                </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

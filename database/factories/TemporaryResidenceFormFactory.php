@@ -18,6 +18,8 @@ class TemporaryResidenceFormFactory extends Factory
     {
         return [
             'people_id' => $this->faker->numberBetween(1, 20),
+            'address'=>$this->faker->address,
+            'reason'=>$this->faker->sentence,
             'note' => $this->faker->sentence,
         ];
     }

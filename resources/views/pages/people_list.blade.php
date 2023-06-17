@@ -15,11 +15,11 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Mã hộ khẩu</th>
-                    <th>Tên chủ hộ</th>
-                    <th>Số thành viên</th>
+                    <th>Mã nhân khẩu</th>
+                    <th>Họ và tên</th>
+                    <th>CCCD/CMT</th>
+                    <th>Số điện thoại</th>
                     <th>Địa chỉ</th>
-                    <th>Ngày tạo</th>
                     <th>Thao tác</th>
                 </tr>
                 </thead>
