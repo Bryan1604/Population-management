@@ -11,7 +11,6 @@
 
     {{--chart--}}
     @include('layouts/pie_chart')
-    @include('layouts/line_chart')
     @include('layouts/column_chart')
 </head>
 

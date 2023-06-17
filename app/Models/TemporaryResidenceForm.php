@@ -18,6 +18,7 @@ class TemporaryResidenceForm extends Model
 
     public function people()
     {
-        return $this->hasOne(People::class);
+        return $this->hasOne(People::class,'id','people_id');
+        
     }
 }
