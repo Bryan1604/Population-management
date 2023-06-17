@@ -11,7 +11,7 @@
             <x-button :message="$message" :type="$type"/>
         </div>
 
-        <div class="table_of_contents">
+        <div style="height: 400px; overflow-y: auto;" class="table_of_contents">
             <table>
                 <thead>
                 <tr>
@@ -45,7 +45,7 @@
                 document.addEventListener("DOMContentLoaded", function(){
                     //get all element with class 'row-link
                     var rowLinks = document.querySelectorAll('.row-link');
-                    // attach click event listener to each row 
+                    // attach click event listener to each row
                     rowLinks.forEach(function(row){
                         row.addEventListener('click', function(){
                             var url = this.dataset.url;

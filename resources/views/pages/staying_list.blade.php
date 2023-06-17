@@ -7,7 +7,7 @@
             <a href="{{ url('staying/add') }}" class="primary_button">Thêm nhân khẩu tạm trú</a>
         </div>
 
-        <div class="table_of_contents">
+        <div style="height: 400px; overflow-y: auto;" class="table_of_contents">
             <table>
                 <thead>
                 <tr>

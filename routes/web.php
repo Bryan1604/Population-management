@@ -27,10 +27,10 @@ Route::get('/dashboard',[PeopleController::class,'calculateChart'])->name('pages
 //     return view('pages/dashboard');
 // });
 
-Route::get('household/list', [HouseholdController::class,'getAllHousehold'])->name('pages/house_hold_list');
-Route::get('household/detail/{id}', [HouseholdController::class,'getHouseholdDetail'])->name('pages/house_hold_detail');
+Route::get('household/list', [HouseholdController::class,'getAllHousehold'])->name('pages.house_hold_list');
+Route::get('household/detail/{id}', [HouseholdController::class,'getHouseholdDetail'])->name('pages.house_hold_detail');
 //Route::get('household/search',[HouseholdController::class,'search']);
-Route::get('household/search','HouseholdController@search');
+Route::get('household/search','HouseholdController@search')->name('pages.house_hold_search');
 
 
 // Route::get('/household/detail', function () {
@@ -39,12 +39,13 @@ Route::get('household/search','HouseholdController@search');
 
 Route::get('/household/add', function () {
     return view('pages/house_hold_create');
-});
+})->name('pages.house_hold_add');
 
 Route::get('/people/list', function () {
     return view('pages/people_list');
-});
-Route::get('people/detail/{id}', [PeopleController::class,'getPeopleDetail'])->name('pages/people_detail');
+})->name('pages.people_list');
+
+Route::get('people/detail/{id}', [PeopleController::class,'getPeopleDetail'])->name('pages.people_detail');
 
 
 // Route::get('/people/detail', function () {
@@ -53,16 +54,16 @@ Route::get('people/detail/{id}', [PeopleController::class,'getPeopleDetail'])->n
 
 Route::get('/people/add', function () {
     return view('pages/people_create_form');
-});
+})->name('pages.people_add');
 
 Route::get('/direction', function () {
     return view('pages/staying_absent_direction');
-});
+})->name('pages.staying_absent_direction');
 
 
-Route::get('staying/list', [TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('pages/staying_list');
+Route::get('staying/list', [TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('pages.staying_list');
 
-Route::get('staying/detail/{id}',[TemporaryResidenceFormController::class,'getInfoDetails'])->name('pages/staying_detail');
+Route::get('staying/detail/{id}',[TemporaryResidenceFormController::class,'getInfoDetails'])->name('pages.staying_detail');
 
 // Route::get('staying/detail', function () {
 //     return view('pages/staying_detail');
@@ -70,32 +71,32 @@ Route::get('staying/detail/{id}',[TemporaryResidenceFormController::class,'getIn
 
 Route::get('staying/add',function(){
     return view('pages/staying_create_form');
-});
+})->name('pages.staying_add');
 
 Route::get('absent/list', function () {
     return view('pages/temporarily_absent_list');
-});
+})->name('pages.absent_list');
 
 Route::get('absent/detail', function () {
     return view('pages/temporarily_absent_detail');
-});
+})->name('pages.absent_detail');
 
 Route::get('absent/add', function () {
     return view('pages/temporarily_absent_create_form');
-});
+})->name('pages.absent_add');
 
 // Route::get('meeting/list', function () {
 //     return view('pages/meeting_list');
 // });
-Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pages/meeting_list');
+Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pages.meeting_list');
 
 
 Route::get('meeting/manage', function () {
-    return view('pages/meeting_manage');
-});
+    return view('pages.meeting_manage');
+})->name('pages.meeting_manage');
 
 Route::get('test/form', function () {
-    return view('pages/test_form');
+    return view('pages.test_form');
 });
 
 Route::get('/demo',[TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('demo');

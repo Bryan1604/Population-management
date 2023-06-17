@@ -1,4 +1,4 @@
-    @include('layouts/heading')
+@include('layouts/heading')
 
 
 {{--Code here--}}
