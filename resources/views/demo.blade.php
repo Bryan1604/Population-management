@@ -24,7 +24,7 @@
         -->
         
 
-        <h5>{{$infoDetail->fullname}}</h5>
+        <h5>{{$infoDetail}}</h5>
         
     </body>
 </html>

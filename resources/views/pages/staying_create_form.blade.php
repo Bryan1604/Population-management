@@ -19,7 +19,7 @@
                 </div>
                 <div class="form_group">
                     <label for="humanName">Họ và tên: </label>
-                    <input type="text" name="humanName" placeholder="example">
+                    <input type="text" name="fullname" placeholder="example">
                 </div>
                 <div class="choose_info">
                     <label>Giới tính: </label>
@@ -34,27 +34,27 @@
                 </div>
                 <div class="form_group">
                     <label for="dateOfBirth">Ngày sinh: </label>
-                    <input type="date" name="dateOfBirth">
+                    <input type="date" name="birthday">
                 </div>
                 <div class="form_group">
                     <label for="identifier">Số CCCD: </label>
-                    <input type="text" name="identifier" placeholder="example">
+                    <input type="text" name="identify_number" placeholder="example">
                 </div>
                 <div class="form_group">
                     <label for="placeOfBirth">Nơi sinh: </label>
-                    <input type="text" name="placeOfBirth" placeholder="example">
+                    <input type="text" name="place_of_birth" placeholder="example">
                 </div>
                 <div class="form_group">
                     <label for="citizen_identity_publish_date">Ngày cấp: </label>
-                    <input type="date" name="citizen_identity_publish_date">
+                    <input type="date" name="received_IDCard_time">
                 </div>
                 <div class="form_group">
                     <label for="citizen_identity_publish_place">Nơi cấp CMND: </label>
-                    <input type="text" name="citizen_identity_publish_place" placeholder="example">
+                    <input type="text" name="received_IDCard_place" placeholder="example">
                 </div>
                 <div class="form_group">
-                    <label for="permanent_residence">Hộ khẩu thường trú: </label>
-                    <input type="text" name="permanent_residence" placeholder="example">
+                    <label for="permanent_residence">Nơi ở trước đó: </label>
+                    <input type="text" name="address_before" placeholder="example">
                 </div>
                 <div class="form_group">
                     <label for="temporary_address">Địa chỉ tạm trú: </label>
@@ -68,7 +68,7 @@
                     <input type="text" name="temporary_reason" placeholder="example">
                 </div><div class="form_group">
                     <label for="notice">Ghi chú thêm: </label>
-                    <input type="text" name="notice" placeholder="example">
+                    <input type="text" name="note" placeholder="example">
                 </div>
 
                 <button type="submit">Gửi</button>

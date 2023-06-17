@@ -5,6 +5,7 @@ use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PeopleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TemporaryResidenceFormController;
+use App\Models\TemporaryResidenceForm;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +41,9 @@ Route::get('/household/add', function () {
     return view('pages/house_hold_create');
 });
 
-// Route::get('/people/list', function () {
-//     return view('pages/people_list');
-// });
+Route::get('/people/list', function () {
+    return view('pages/people_list');
+});
 Route::get('people/detail/{id}', [PeopleController::class,'getPeopleDetail'])->name('pages/people_detail');
 
 
@@ -58,17 +59,18 @@ Route::get('/direction', function () {
     return view('pages/staying_absent_direction');
 });
 
+
 Route::get('staying/list', function () {
     return view('pages/staying_list');
 });
+
+Route::get('staying/detail/{id}',[TemporaryResidenceFormController::class,'getInfoDetails'])->name('pages/staying_detail');
 
 Route::get('staying/detail', function () {
     return view('pages/staying_detail');
 });
 
-Route::get('staying/add', function () {
-    return view('pages/staying_create_form');
-});
+Route::post('staying/add',[TemporaryResidenceForm::class,'store']) ->name('pages/staying_create_form');
 
 Route::get('absent/list', function () {
     return view('pages/temporarily_absent_list');

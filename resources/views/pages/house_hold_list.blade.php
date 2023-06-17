@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                     @foreach($household as $item)
-                    <tr>
+                    <tr  class="row-link" data-url="{{ url('household/detail/'.$item->id) }}">
                         <td>{{$item->id}}</td>
                         <td>{{$item->owner->fullname}}</td>
                         <td>{{$item->quantity}}</td>
@@ -40,6 +40,20 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function(){
+                    //get all element with class 'row-link
+                    var rowLinks = document.querySelectorAll('.row-link');
+                    // attach click event listener to each row 
+                    rowLinks.forEach(function(row){
+                        row.addEventListener('click', function(){
+                            var url = this.dataset.url;
+                            window.location.href = url;
+                        });
+                    });
+                });
+            </script>
         </div>
     </div>
 @endsection
