@@ -28,19 +28,8 @@ class TemporaryResidenceFormController extends Controller
         return view('demo',['data'=>$jsonData]);
     }
 
-    public function getInfoDetails(Request $request, $id){
-        if($request){
-            $info = TemporaryResidenceForm::find($id);
-
-            if ($info) {
-                $infoDetail = People::find($info->people_id);
-                return view('demo', ['infoDetail' => $infoDetail]);
-            } else {
-                return view('demo', ['infoDetail' => "no data"]);
-            }
-        }else{
-            return view('demo', ['infoDetail' => "no request"]);
-        }
-      
+    public function getInfoDetails($id){
+        $people = TemporaryResidenceForm::with('people')->find($id);
+        return view('staying_detail',['people'=>$people]);
     }
 }
