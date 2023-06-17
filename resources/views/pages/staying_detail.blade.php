@@ -8,15 +8,18 @@
             $deleteBtnType = "dangerous_button";
             $editBtnMessage = "Chỉnh Sửa";
             $editBtnType = "secondary_button";
-            $backBtnMessage = "Quay Lại";
-            $backBtnType = "primary_button";
             ?>
-            <x-button :message="$backBtnMessage" :type="$backBtnType"/>
+            <button onclick="goback()" class="primary_button">Quay Lại</button>
             <div class="control_btn">
                 <x-button :message="$editBtnMessage" :type="$editBtnType"/>
                 <x-button :message="$deleteBtnMessage" :type="$deleteBtnType"/>
             </div>
         </div>
+        <script>
+            function goback(){
+                window.history.back();
+            }
+        </script>
 
         <div class="detail_info">
             <div class="head_of_house_hold">

@@ -60,17 +60,17 @@ Route::get('/direction', function () {
 });
 
 
-Route::get('staying/list', function () {
-    return view('pages/staying_list');
-});
+Route::get('staying/list', [TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('pages/staying_list');
 
 Route::get('staying/detail/{id}',[TemporaryResidenceFormController::class,'getInfoDetails'])->name('pages/staying_detail');
 
-Route::get('staying/detail', function () {
-    return view('pages/staying_detail');
-});
+// Route::get('staying/detail', function () {
+//     return view('pages/staying_detail');
+// });
 
-Route::post('staying/add',[TemporaryResidenceForm::class,'store']) ->name('pages/staying_create_form');
+Route::get('staying/add',function(){
+    return view('pages/staying_create_form');
+});
 
 Route::get('absent/list', function () {
     return view('pages/temporarily_absent_list');

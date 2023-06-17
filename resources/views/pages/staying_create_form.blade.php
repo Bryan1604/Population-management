@@ -3,12 +3,13 @@
 @section('content')
     <div class="content_container">
         <div class="content_control">
-            <?php
-            $backBtnMessage = "Quay Lại";
-            $backBtnType = "primary_button";
-            ?>
-            <x-button :message="$backBtnMessage" :type="$backBtnType"/>
+            <button onclick="goback()" class="primary_button">Quay Lại</button>
         </div>
+        <script>
+            function goback(){
+                window.history.back();
+            }
+        </script>
 
         <div class="form_container">
             <form action="" method="post">

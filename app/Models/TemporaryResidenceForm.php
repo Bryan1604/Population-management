@@ -13,12 +13,13 @@ class TemporaryResidenceForm extends Model
     protected $table = "temporary_residence_form";
     protected $fillable = [
         'people_id',
+        'address',
+        'reason'.
         'note'
     ];
 
-    public function people()
+    public function people(): HasOne
     {
         return $this->hasOne(People::class,'id','people_id');
-        
     }
 }

@@ -35,4 +35,35 @@ class HouseholdController extends Controller
         return view('pages.household_list',['household'=>$household]);
     }
 
+    // tao moi 1 ho khau 
+    public function createHousehold(Request $request){
+        if($request){
+            // tao moi 1 ho khau tu 1 owner moi
+            $household = new Household();
+            $owner = new People();
+            $owner-> household_id = $household->id;    
+            $owner->fullname = $request->input('fullname');
+            $owner->identify_number = $request->input('identify_number');
+            $owner->sex = $request->input('sex');
+            $owner->birthday = $request->input('birthday');
+            $owner->place_of_birth = $request->input('place_of_birth');
+            $owner->ethnic = $request->input('ethnic');
+            $owner->job = $request->input('job');
+            $owner->office = $request->input('office');
+            $owner->received_IDCard_place = $request->input('received_IDCard_place');
+            $owner->received_IDCard_time = $request->input('received_IDCard_time');
+            $owner->phone_number = $request-> input('phone_number');
+            $owner->domicile = $request->input('domicile');   // nguyen quan 
+            $owner->address_before = $request->input('address_before');
+            $owner->household_owner_relationship = $request->input('household_owner_relationship');
+            $owner->state = 0; // khi tao ho khau thi mac dinh la 0
+            $owner->note = $request->input('note');
+            if($owner->save()){
+                $household->owner_id = $owner->id;
+                $household->owner = $owner;
+                $household->save();
+                return $household;
+            }
+        }
+    }
 }

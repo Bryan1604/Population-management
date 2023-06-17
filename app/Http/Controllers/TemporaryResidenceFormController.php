@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\TemporaryAbsenceForm;
 use App\Models\TemporaryResidenceForm;
 use App\Models\People;
 use Illuminate\Auth\Events\Validated;
@@ -11,22 +10,8 @@ use Illuminate\Auth\Events\Validated;
 class TemporaryResidenceFormController extends Controller
 {
     public function getTemporaryResidenceForm(){
-        $trd = TemporaryResidenceForm::all();
-        $people = [];
-        foreach($trd as $item){
-            $p = People::find($item->people_id);
-            $item->people = $p; 
-            $people[] = $p;
-        }
-
-        // $data = [
-        //     'trd' => $trd,
-        //     'people' => $people,
-        // ];
-    
-        $jsonData = json_encode($trd);
-
-        return view('demo',['data'=>$jsonData]);
+        $trd = TemporaryResidenceForm::with('people')->get();
+        return view('pages/staying_list',['data'=>$trd]);
     }
 
     public function getInfoDetails($id){
@@ -72,12 +57,28 @@ class TemporaryResidenceFormController extends Controller
     
         $trf = new TemporaryResidenceForm();
         $trf->people_id = $people->id;
+        $trf->reason = $request->input('reason');
+        $trf->address = $request->input('address');
+        $trf->note = $request->input('note');
         $trf->save();
     
-        return redirect('pages/staying_create_form', ['message' => 'saved successfully']);
+        return redirect('pages/staying_create_form')->with('message','saved successfully');
     }
 
     public function create(){
         return view('pages/staying_create_form');
+    }
+
+    public function update(Request $request, $id){
+        $trf = TemporaryResidenceForm::find($id);
+        if(!$trf && $request){
+            $trf->address = $request->input('address');
+            $trf->reason = $request->input('reason');
+            $trf->note = $request->input('note');
+            $trf->save();
+            return redirect('pages/staying_detail')->with('message','updated successfully');
+        }
+
+
     }
 }
