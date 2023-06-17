@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('layouts/main');
 });
 
-Route::get('/dashboard',[PeopleController::class,'calculateChart'])->name('pages/dashboard');
+Route::get('/dashboard',[PeopleController::class,'calculateChart'])->name('pages.dashboard');
 // Route::get('/dashboard', function () {
 //     return view('pages/dashboard');
 // });
