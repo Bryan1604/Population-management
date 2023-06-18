@@ -59,18 +59,11 @@ Route::get('/direction', function () {
     return view('pages/staying_absent_direction');
 });
 
-
 Route::get('staying/list', [TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('pages/staying_list');
-
 Route::get('staying/detail/{id}',[TemporaryResidenceFormController::class,'getInfoDetails'])->name('pages/staying_detail');
-
-// Route::get('staying/detail', function () {
-//     return view('pages/staying_detail');
-// });
-
-Route::get('staying/add',function(){
-    return view('pages/staying_create_form');
-});
+Route::get('staying/add', [TemporaryResidenceFormController::class,'create'])->name('pages/staying_create_form');
+Route::post('staying/add',[TemporaryResidenceFormController::class,'store'])->name('pages/staying_create_form_store');
+Route::get('staying/delete/{id}',[TemporaryResidenceFormController::class,'destroy'])->name('pages/staying_list_delete');
 
 Route::get('absent/list', function () {
     return view('pages/temporarily_absent_list');
@@ -100,4 +93,3 @@ Route::get('test/form', function () {
 
 Route::get('/demo',[TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('demo');
 Route::get('/demo/{id}', [TemporaryResidenceFormController::class, 'getInfoDetails'])->name('demo');
-

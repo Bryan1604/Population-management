@@ -119,6 +119,15 @@
   color: #141414;
   box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.15);
 }
+
+.content_container .content_control .search_bar button {
+  padding: 5px 10px 5px 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0px 5px 5px 0px;
+  color: #141414;
+  box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.15);
+}
+
 .content_container .content_control .primary_button {
   padding: 6px 10px;
   font-size: 24px;

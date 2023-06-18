@@ -30,7 +30,7 @@ class PeopleFactory extends Factory
                 'office' =>$this->faker->company,
                 'identify_number' =>$this->faker->numerify('############'),
                 'received_IDCard_place' =>$this->faker->city,
-                'recieved_IDCard_time' => $this->faker->date,
+                'received_IDCard_time' => $this->faker->date,
                 'phone_number' => $this->faker->phoneNumber,
                 'domicile' => $this->faker->city,
                 'address_before' =>$this->faker->address,
