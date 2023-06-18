@@ -8,7 +8,7 @@
             $message = "Thêm nhân khẩu";
             $type = "primary_button";
             ?>
-            <x-button :message="$message" :type="$type"/>
+             <a href="{{ url('people/add') }}" class="primary_button">Thêm nhân khẩu</a>
         </div>
 
         <div class="table_of_contents">
@@ -20,22 +20,26 @@
                     <th>CCCD/CMT</th>
                     <th>Số điện thoại</th>
                     <th>Địa chỉ</th>
+                    <th>Quan hệ với chủ hộ</th>
                     <th>Thao tác</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($data as $item)
                 <tr>
-                    <td>1</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>123 Nguyễn Văn A</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2021</td>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->fullname}}</td>
+                    <td>{{$item->identify_number}}</td>
+                    <td>{{$item->phone_number}}</td>
+                    <td>{{$item->household ? $item->household->address : ($item->temporaryResidenceForm ? $item->temporaryResidenceForm->address: "N/A")}}</td>
+                    <td>{{$item->household_owner_relationship ? $item->household_owner_relationship : 'owner'}}</td>
                     <td>
-                        <a href="#" class="primary_button">Xem</a>
+                        <a href="{{url('people/detail/'.$item->id)}}" class="primary_button">Xem</a>
                         <a href="#" class="primary_button">Sửa</a>
                         <a href="#" class="primary_button">Xóa</a>
                     </td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

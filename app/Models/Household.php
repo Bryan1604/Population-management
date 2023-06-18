@@ -20,7 +20,7 @@ class Household extends Model
 
     public function people():BelongsTo
     {
-        return $this->belongsTo(People::class,'household_id','id');
+        return $this->belongsTo(People::class);
     }
 
     public function owner():HasOne

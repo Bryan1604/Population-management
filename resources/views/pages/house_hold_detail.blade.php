@@ -11,11 +11,18 @@
             $backBtnMessage = "Quay Lại";
             $backBtnType = "primary_button";
             ?>
-            <x-button :message="$backBtnMessage" :type="$backBtnType"/>
+            <!-- <x-button :message="$backBtnMessage" :type="$backBtnType"/> -->
+            <button onclick="goback()" class="primary_button">Quay Lại</button>
             <div class="control_btn">
                 <x-button :message="$editBtnMessage" :type="$editBtnType"/>
                 <x-button :message="$deleteBtnMessage" :type="$deleteBtnType"/>
             </div>
+
+            <script>
+                function goback(){
+                    window.history.back();
+                }
+            </script>
         </div>
 
         <div class="detail_info">

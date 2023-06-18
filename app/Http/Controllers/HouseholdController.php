@@ -8,16 +8,21 @@ use App\Models\People;
 
 class HouseholdController extends Controller
 {
-    public function getAllHousehold(){
-        
-        $household = Household::with('owner')->get();
-        // $households = Household::with('owner')
-        // ->addSelect(['count_number' => People::selectRaw('count(*)')
-        //     ->whereColumn('household_id', 'household.id')
-        //     ->getQuery()
-        // ])
-        // ->get();
-        return view('pages/house_hold_list',['household'=>$household]);
+    public function getAllHousehold(Request $request){
+        $search = $request->input('search') ?? "";
+        if($search != ""){
+            $household = Household::with('owner')
+                        ->whereHas('owner', function ($query) use ($search) {
+                            $query->where('fullname', 'LIKE', "%$search%")
+                            ->orWhere('household_id', '=', $search)
+                            ->orWhere('address', 'LIKE', "%$search%");
+                        })
+                        ->orderBy('created_at','ASC')
+                        ->get();
+        }else{
+            $household = Household::with('owner')->get();
+        }
+        return view('pages/house_hold_list',['household'=>$household,'search'=>$search]);
     }
 
     public function getHouseholdDetail($household_id){
@@ -66,4 +71,5 @@ class HouseholdController extends Controller
             }
         }
     }
+
 }

@@ -7,7 +7,14 @@
             $backBtnMessage = "Quay Lại";
             $backBtnType = "primary_button";
             ?>
-            <x-button :message="$backBtnMessage" :type="$backBtnType"/>
+            <button onclick="goback()" class="primary_button">Quay Lại</button>
+            <!--back action --->
+            <script>
+                function goback(){
+                    window.history.back();
+                }
+            </script>
+            <!-- -->
         </div>
 
         <div class="form_container">
@@ -17,40 +24,36 @@
                     <input type="file" id="myFile" name="filename">
                 </div>
                 <div class="form_group">
-                    <label for="humanName">Họ và tên: </label>
-                    <input type="text" name="humanName" placeholder="example">
+                    <label for="fullname">Họ và tên: </label>
+                    <input type="text" name="fullname" placeholder="example">
                 </div>
                 <div class="form_group">
-                    <label for="identifier">Mã định danh: </label>
-                    <input type="text" name="identifier" placeholder="example">
+                    <label for="identify_number">Mã định danh: </label>
+                    <input type="text" name="identify_number" placeholder="example">
                 </div>
                 <div class="form_group">
-                    <label for="aliases">Bí danh: </label>
-                    <input type="text" name="aliases" placeholder="example">
+                    <label for="birthday">Ngày sinh: </label>
+                    <input type="date" name="birthday">
                 </div>
                 <div class="form_group">
-                    <label for="dateOfBirth">Ngày sinh: </label>
-                    <input type="date" name="dateOfBirth">
-                </div>
-                <div class="form_group">
-                    <label for="placeOfBirth">Nơi sinh: </label>
-                    <input type="text" name="placeOfBirth" placeholder="example">
+                    <label for="place_of_birth">Nơi sinh: </label>
+                    <input type="text" name="place_of_birth" placeholder="example">
                 </div>
                 <div class="form_group">
                     <label for="religion">Tôn giáo: </label>
                     <input type="text" name="religion" placeholder="example">
                 </div>
                 <div class="form_group">
-                    <label for="folk">Dân tộc: </label>
-                    <input type="text" name="folk" placeholder="example">
+                    <label for="ethnic">Dân tộc: </label>
+                    <input type="text" name="ethnic" placeholder="example">
                 </div>
                 <div class="form_group">
-                    <label for="citizen_identity_publish_place">Nơi cấp CMND: </label>
-                    <input type="text" name="citizen_identity_publish_place" placeholder="example">
+                    <label for="received_IDCard_place">Nơi cấp CMND: </label>
+                    <input type="text" name="received_IDCard_place" placeholder="example">
                 </div>
                 <div class="form_group">
-                    <label for="citizen_identity_publish_date">Ngày cấp: </label>
-                    <input type="date" name="citizen_identity_publish_date">
+                    <label for="received_IDCard_time">Ngày cấp: </label>
+                    <input type="date" name="received_IDCard_time">
                 </div>
                 <div class="form_group">
                     <label for="phone_number">Số điện thoại: </label>
@@ -61,8 +64,8 @@
                     <input type="text" name="domicile" placeholder="example">
                 </div>
                 <div class="form_group">
-                    <label for="notice">Ghi chú thêm: </label>
-                    <input type="text" name="notice" placeholder="example">
+                    <label for="note">Ghi chú thêm: </label>
+                    <input type="text" name="note" placeholder="example">
                 </div>
                 <div class="choose_info">
                     <label>Giới tính: </label>
@@ -78,19 +81,19 @@
                 <div class="choose_info">
                     <label>Quan hệ với chủ hộ: </label>
                     <div class="radio_input">
-                        <input type="radio" id="head" name="relationship_with_the_head_of_household" value="head">
+                        <input type="radio" id="head" name="household_owner_relationship" value="head">
                         <span>Chủ hộ</span>
                     </div>
                     <div class="radio_input">
-                        <input type="radio" id="wife" name="relationship_with_the_head_of_household" value="wife">
+                        <input type="radio" id="wife" name="household_owner_relationship" value="wife">
                         <span>Vợ</span>
                     </div>
                     <div class="radio_input">
-                        <input type="radio" id="husband" name="relationship_with_the_head_of_household" value="husband">
+                        <input type="radio" id="husband" name="household_owner_relationship" value="husband">
                         <span>Chồng</span>
                     </div>
                     <div class="radio_input">
-                        <input type="radio" id="child" name="relationship_with_the_head_of_household" value="child">
+                        <input type="radio" id="child" name="household_owner_relationship" value="child">
                         <span>Con</span>
                     </div>
                 </div>

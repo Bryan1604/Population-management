@@ -19,6 +19,7 @@ class TemporaryResidenceFormController extends Controller
                             ->orWhere('identify_number', 'LIKE', "%$search%")
                             ->orWhere('address_before', 'LIKE', "%$search%");
                          })
+                        ->orderBy('created_at','ASC')
                         ->get();
             }else{
                 $trf = TemporaryResidenceForm::all();
@@ -109,7 +110,12 @@ class TemporaryResidenceFormController extends Controller
     // }
 
     public function destroy($id){
-        TemporaryResidenceForm::destroy($id);
-        return redirect('staying/list')->with('flash_message','delete successful!');
+        $trf = TemporaryResidenceForm::with('people')->find($id);
+        if (!$trf) {
+            return view('pages.staying_list', ['flash_message' => 'Form not found!']);
+        }
+        $trf->people()->delete();
+        $trf->delete();
+        return redirect('staying/list') ->with('flash_message', 'Delete successful!');
     }
 }

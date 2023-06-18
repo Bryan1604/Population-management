@@ -30,6 +30,7 @@
                 <tbody>
                 @foreach($data as $item)
                 <tr>
+                    @if($item->people)
                     <td>{{$item->created_at->format('d-m-Y')}}</td>
                     <td>{{$item->people->fullname}}</td>
                     <td>{{$item->people->identify_number}}</td>
@@ -42,6 +43,7 @@
                         <a href="{{url('staying/delete/'.$item->id)}}" class="primary_button">Xóa</a>
                         
                     </td>
+                    @endif
                 </tr>
                 @endforeach
                 <script>

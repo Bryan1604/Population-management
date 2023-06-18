@@ -11,12 +11,20 @@
             $backBtnMessage = "Quay Lại";
             $backBtnType = "primary_button";
             ?>
-            <x-button :message="$backBtnMessage" :type="$backBtnType"/>
+            <button onclick="goback()" class="primary_button">Quay Lại</button>
+            <!--back action --->
+            <script>
+                function goback(){
+                    window.history.back();
+                }
+            </script>
+            <!-- -->
             <div class="control_btn">
                 <x-button :message="$editBtnMessage" :type="$editBtnType"/>
                 <x-button :message="$deleteBtnMessage" :type="$deleteBtnType"/>
             </div>
         </div>
+
 
         <div class="detail_info">
             <div class="left_col_info">
@@ -63,19 +71,15 @@
                 </div>
                 <div class="info">
                     <label>Ngày cấp: </label>
-                    <span>{{$people_detail->recieved_IDCard_time}}</span>
+                    <span>{{$people_detail->received_IDCard_time}}</span>
                 </div>
                 <div class="info">
                     <label>Nguyên Quán: </label>
                     <span>{{$people_detail->domicile}}</span>
                 </div>
                 <div class="info">
-                    <label>Nơi ở trước đó (trường hợp tạm trú): </label>
-                    @if ($people_detail->state == 2)
-                        <span>{{$people_detail->address_before}}</span>
-                    @else
-                        <span>Không</span>
-                    @endif
+                    <label>Nơi ở trước đó : </label>
+                    <span>{{$people_detail->address_before}}</span>
                 </div>
                 <div class="info">
                     <label>Dân tộc: </label>

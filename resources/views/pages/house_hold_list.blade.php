@@ -3,12 +3,20 @@
 @section('content')
     <div class="content_container">
         <div class="content_control">
-            <x-search-bar/>
-            <?php
-            $message = "Thêm hộ khẩu";
-            $type = "primary_button";
+            <form action="">
+                <div class="search_bar">
+                    <input type="search" name="search" class="search" placeholder="Search" value="{{$search}}">
+                    <button type="submit" class="search_button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            
+            <!-- <?php
+            // $message = "Thêm hộ khẩu";
+            // $type = "primary_button";
+            // $url = url('household/add');
             ?>
-            <x-button :message="$message" :type="$type"/>
+            <x-button :message="$message" :type="$type" :href = "$url" /> -->
+            <a href="{{ url('household/add') }}" class="primary_button">Thêm hộ khẩu</a>
         </div>
 
         <div class="table_of_contents">

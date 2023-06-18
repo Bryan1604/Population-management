@@ -24,7 +24,7 @@
         -->
         
 
-        <h5>{{$infoDetail}}</h5>
+        <h5>{{$data}}</h5>
         
     </body>
 </html>

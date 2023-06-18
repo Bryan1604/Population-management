@@ -23,27 +23,19 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard',[PeopleController::class,'calculateChart'])->name('pages/dashboard');
-// Route::get('/dashboard', function () {
-//     return view('pages/dashboard');
-// });
 
 Route::get('household/list', [HouseholdController::class,'getAllHousehold'])->name('pages/house_hold_list');
 Route::get('household/detail/{id}', [HouseholdController::class,'getHouseholdDetail'])->name('pages/house_hold_detail');
-//Route::get('household/search',[HouseholdController::class,'search']);
-Route::get('household/search','HouseholdController@search');
-
-
-// Route::get('/household/detail', function () {
-//     return view('pages/house_hold_detail');
-// });
+Route::get('household/search','HouseholdController@search'); // can sua lai 
 
 Route::get('/household/add', function () {
     return view('pages/house_hold_create');
 });
 
-Route::get('/people/list', function () {
-    return view('pages/people_list');
-});
+// Route::get('/people/list', function () {
+//     return view('pages/people_list');
+// });
+Route::get('people/list', [PeopleController::class,'getAllPeople'])->name('pages/people_list');
 Route::get('people/detail/{id}', [PeopleController::class,'getPeopleDetail'])->name('pages/people_detail');
 
 
@@ -90,6 +82,3 @@ Route::get('meeting/manage', function () {
 Route::get('test/form', function () {
     return view('pages/test_form');
 });
-
-Route::get('/demo',[TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('demo');
-Route::get('/demo/{id}', [TemporaryResidenceFormController::class, 'getInfoDetails'])->name('demo');
