@@ -101,3 +101,12 @@ Route::get('test/form', function () {
 Route::get('/demo',[TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('demo');
 Route::get('/demo/{id}', [TemporaryResidenceFormController::class, 'getInfoDetails'])->name('demo');
 
+
+Route::get('/add_person_form/{isOwner}', [HouseholdController::class, 'addPersonForm']);
+Route::post('/add_person_form', [HouseholdController::class, 'submitPerson']);
+Route::get('/create_household', function () {
+    return view('temporary_add_household/createhousehold');
+});
+Route::post('/save_data', [HouseholdController::class, 'save'])->name('save_data');
+
+
