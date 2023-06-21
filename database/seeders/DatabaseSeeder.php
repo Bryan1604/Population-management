@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(HouseholdSeeder::class);
         $this->call(ManagerSeeder::class);
         $this->call(TemporaryResidenceFormSeeder::class);
+        $this->call(MeetingSeeder::class);
+
 
     }
 }

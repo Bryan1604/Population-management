@@ -73,7 +73,20 @@ Route::get('absent/add', function () {
 //     return view('pages/meeting_list');
 // });
 Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pages/meeting_list');
+Route::get('meeting/detail/{id}', [MeetingController::class,'getMeetingDetail'])->name('pages/meeting_detail');
+Route::get('meeting/edit', [MeetingController::class,'edit'])->name('pages/meeting_edit');
 
+
+
+
+
+// Route::get('/people/detail', function () {
+//     return view('pages/people_detail');
+// });
+
+Route::get('/meeting/add', function () {
+    return view('pages/meeting_create_form');
+});
 
 Route::get('meeting/manage', function () {
     return view('pages/meeting_manage');
@@ -82,3 +95,9 @@ Route::get('meeting/manage', function () {
 Route::get('test/form', function () {
     return view('pages/test_form');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('meetings', MeetingController::class);

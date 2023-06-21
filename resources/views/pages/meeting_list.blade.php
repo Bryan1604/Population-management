@@ -8,7 +8,8 @@
             $message = "Thêm Cuộc Họp";
             $type = "primary_button";
             ?>
-            <x-button :message="$message" :type="$type"/>
+            {{-- <x-button :message="$message" :type="$type"/> --}}
+            <a href="{{ url('meeting/add') }}" class="primary_button">Thêm Cuộc Họp</a>
         </div>
 
         <div class="table_of_contents">
@@ -32,14 +33,22 @@
                     <td>{{$item->place}}</td>
                     <td>{{$item->created_at}}</td>
                     <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
+                        <a href="{{url('meeting/detail/'.$item->id)}}" class="primary_button">Xem</a>
+                        <a href="{{ route('meetings.edit',$item->id) }}" class="primary_button">Sửa</a>
+                        {{-- <a href="#" class="primary_button">Xóa</a> --}}
+
+                        <form action="{{ route('meetings.destroy',$item->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" >Xóa</button>
+                            
+                        </form>
                     </td>
                 </tr>
                 @endforeach
                 </tbody>
             </table>
+            {{ $meetings->withQueryString()->links('pagination::simple-bootstrap-5') }}
         </div>
     </div>
 @endsection
