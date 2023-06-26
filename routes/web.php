@@ -5,7 +5,7 @@ use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PeopleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TemporaryResidenceFormController;
-use App\Models\TemporaryResidenceForm;
+use App\Http\Controllers\TemporaryAbsenceFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ Route::get('household/search','HouseholdController@search'); // can sua lai
 
 Route::get('/household/add', function () {
     return view('pages/house_hold_create');
-});
+})->name('pages.house_hold_add');
 
 // Route::get('/people/list', function () {
 //     return view('pages/people_list');
@@ -45,11 +45,11 @@ Route::get('people/detail/{id}', [PeopleController::class,'getPeopleDetail'])->n
 
 Route::get('/people/add', function () {
     return view('pages/people_create_form');
-});
+})->name('pages.people_add');
 
 Route::get('/direction', function () {
     return view('pages/staying_absent_direction');
-});
+})->name('pages.staying_absent_direction');
 
 Route::get('staying/list', [TemporaryResidenceFormController::class,'getTemporaryResidenceForm'])->name('pages/staying_list');
 Route::get('staying/detail/{id}',[TemporaryResidenceFormController::class,'getInfoDetails'])->name('pages/staying_detail');
@@ -59,26 +59,26 @@ Route::get('staying/delete/{id}',[TemporaryResidenceFormController::class,'destr
 
 Route::get('absent/list', function () {
     return view('pages/temporarily_absent_list');
-});
+})->name('pages.absent_list');
 
 Route::get('absent/detail', function () {
     return view('pages/temporarily_absent_detail');
-});
+})->name('pages.absent_detail');
 
 Route::get('absent/add', function () {
     return view('pages/temporarily_absent_create_form');
-});
+})->name('pages.absent_add');
 
 // Route::get('meeting/list', function () {
 //     return view('pages/meeting_list');
 // });
-Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pages/meeting_list');
+Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pages.meeting_list');
 
 
 Route::get('meeting/manage', function () {
-    return view('pages/meeting_manage');
-});
+    return view('pages.meeting_manage');
+})->name('pages.meeting_manage');
 
 Route::get('test/form', function () {
-    return view('pages/test_form');
+    return view('pages.test_form');
 });

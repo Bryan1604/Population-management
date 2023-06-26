@@ -11,7 +11,7 @@
              <a href="{{ url('people/add') }}" class="primary_button">Thêm nhân khẩu</a>
         </div>
 
-        <div class="table_of_contents">
+        <div style="height: 400px; overflow-y: auto;" class="table_of_contents">
             <table>
                 <thead>
                 <tr>

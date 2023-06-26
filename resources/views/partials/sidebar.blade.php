@@ -2,7 +2,6 @@
     <div class="navigator">
         <h2 class="nav_menu__heading">QUẢN LÝ CÔNG DÂN</h2>
         <ul class="nav_menu_items">
-           
             <li><a href="{{ url('dashboard') }}">Thống kê</a></li>
             <li class="item_actived"><a href="{{ url('household/list') }}">Thông tin hộ khẩu</a></li>
             <li><a href="{{url('people/list')}}">Thông tin nhân khẩu</a></li>
