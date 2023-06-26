@@ -11,7 +11,7 @@
             <x-button :message="$message" :type="$type"/>
         </div>
 
-        <div style="height: 400px; overflow-y: auto;" class="table_of_contents">
+        <div class="table_of_contents">
             <table>
                 <thead>
                 <tr>
