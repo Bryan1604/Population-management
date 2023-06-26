@@ -18,7 +18,19 @@
         </div>
 
         <div class="form_container">
-            <form action="" method="post">
+            <?php
+            $currentRoute = \Illuminate\Support\Facades\Route::currentRouteName();
+            if ($currentRoute == 'pages.create_owner'){
+                // thêm chủ hộ 
+                $action = "household/create_owner";
+            }else{
+                // them nguoi vao ho khau 
+                $action = "household/add_people";
+            }
+            ?>
+            <form action="{{url($action)}}" method="POST">
+                {{ method_field('POST') }}
+                {{ csrf_field() }}
                 {{--avt choose file--}}
                 <div class="form_group">
                     <input type="file" id="myFile" name="filename">
@@ -64,6 +76,10 @@
                     <input type="text" name="domicile" placeholder="example">
                 </div>
                 <div class="form_group">
+                    <label for="address_before">Nơi ở trước đó: </label>
+                    <input type="text" name="address_before" placeholder="example">
+                </div>
+                <div class="form_group">
                     <label for="note">Ghi chú thêm: </label>
                     <input type="text" name="note" placeholder="example">
                 </div>
@@ -80,10 +96,12 @@
                 </div>
                 <div class="choose_info">
                     <label>Quan hệ với chủ hộ: </label>
+                    @if($currentRoute == 'pages.create_owner' )
                     <div class="radio_input">
                         <input type="radio" id="head" name="household_owner_relationship" value="head">
                         <span>Chủ hộ</span>
                     </div>
+                    @endif
                     <div class="radio_input">
                         <input type="radio" id="wife" name="household_owner_relationship" value="wife">
                         <span>Vợ</span>
@@ -96,7 +114,21 @@
                         <input type="radio" id="child" name="household_owner_relationship" value="child">
                         <span>Con</span>
                     </div>
+                    <div class="radio_input">
+                        <input type="radio" id="father" name="household_owner_relationship" value="father">
+                        <span>Bố</span>
+                    </div>
+                    <div class="radio_input">
+                        <input type="radio" id="mother" name="household_owner_relationship" value="mother">
+                        <span>Mẹ</span>
+                    </div>
                 </div>
+                @if($currentRoute == 'pages.create_owner' )
+                    <div class="form_group">
+                        <label for="address">Địa chỉ hộ khẩu đăng kí: </label>
+                        <input type="text" name="address" placeholder="example">
+                    </div>
+                @endif
                 <button type="submit">Gửi</button>
             </form>
         </div>

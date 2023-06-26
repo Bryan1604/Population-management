@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Household;
 use App\Models\People;
-
+use Illuminate\Auth\Events\Validated;
+use Illuminate\Support\Facades\Session;
 class HouseholdController extends Controller
 {
     public function getAllHousehold(Request $request){
@@ -41,35 +42,133 @@ class HouseholdController extends Controller
     }
 
     // tao moi 1 ho khau 
-    public function createHousehold(Request $request){
-        if($request){
-            // tao moi 1 ho khau tu 1 owner moi
-            $household = new Household();
+    public function createHousehold(){
+        return view('pages.people_create_form', ['owner' => null, 'household' => null]);
+    }
+
+    public function storeHousehold(Request $request){
+
+        $validatedData = $request->validate([
+            'fullname' => 'required',
+            'sex' => 'required',
+            'birthday' => 'required',
+            'identify_number' => 'required',
+            'place_of_birth' => 'required',
+            'religion' => 'required',
+            'ethnic'=>'required',
+            'domicile'=>'required',
+            'received_IDCard_place' => 'required',
+            'received_IDCard_time' => 'required',
+            'address_before' => 'required',
+            'phone_number'=>'required',
+            'household_owner_relationship'=>'required',
+            'note'=>'required',
+            'address'=>'required',
+        ]);
+
+        $household = new Household();
+        $household->quantity = 1;
+       
+
             $owner = new People();
-            $owner-> household_id = $household->id;    
-            $owner->fullname = $request->input('fullname');
-            $owner->identify_number = $request->input('identify_number');
-            $owner->sex = $request->input('sex');
-            $owner->birthday = $request->input('birthday');
-            $owner->place_of_birth = $request->input('place_of_birth');
-            $owner->ethnic = $request->input('ethnic');
-            $owner->job = $request->input('job');
-            $owner->office = $request->input('office');
-            $owner->received_IDCard_place = $request->input('received_IDCard_place');
-            $owner->received_IDCard_time = $request->input('received_IDCard_time');
-            $owner->phone_number = $request-> input('phone_number');
-            $owner->domicile = $request->input('domicile');   // nguyen quan 
-            $owner->address_before = $request->input('address_before');
-            $owner->household_owner_relationship = $request->input('household_owner_relationship');
+            $owner->fullname = $validatedData['fullname'];
+            $owner->identify_number = $validatedData['identify_number'];
+            if ($validatedData['sex'] == 'male'){
+                $owner->sex = 0;
+            }else{
+                $owner->sex = 1;
+            }
+           
+            $owner->birthday = $validatedData['birthday'];
+            $owner->place_of_birth = $validatedData['place_of_birth'];
+            $owner->ethnic = $validatedData['ethnic'];
+            //$owner->job = $request->input('job');
+            //$owner->office = $request->input('office');
+            $owner->received_IDCard_place = $validatedData['received_IDCard_place'];
+            $owner->received_IDCard_time = $validatedData['received_IDCard_time'];
+            $owner->phone_number = $validatedData['phone_number'];
+            $owner->domicile = $validatedData['domicile'];   // nguyen quan 
+            $owner->address_before = $validatedData['address_before'];
+            $owner->household_owner_relationship = $validatedData['household_owner_relationship'];
             $owner->state = 0; // khi tao ho khau thi mac dinh la 0
             $owner->note = $request->input('note');
-            if($owner->save()){
-                $household->owner_id = $owner->id;
-                $household->owner = $owner;
-                $household->save();
-                return $household;
-            }
+            
+            $household->address = $validatedData['address'];
+            $household->owner_id = 0;
+            $household->save();
+            
+            $owner-> household_id = $household->id;  
+            $owner->save();
+            $household->owner_id = $owner->id;
+            $household->save();
+
+            $people = People::with('household')->where('household_id','=',$household->id)->get();
+        return redirect('household/add')->with([
+            'message' => 'Add owner success',
+            'household'=>$household,
+            'owner' => $owner,
+            'people'=>$people,
+        ]);
+    }
+
+    public function addNewPeopeleToHousehold(){
+        return view('pages.people_create_form');
+    }
+
+    public function storeNewPeopleToHousehold(Request $request){
+        $validatedData = $request->validate([
+            'fullname' => 'required',
+            'sex' => 'required',
+            'birthday' => 'required',
+            'identify_number' => 'required',
+            'place_of_birth' => 'required',
+            'religion' => 'required',
+            'ethnic'=>'required',
+            'domicile'=>'required',
+            'received_IDCard_place' => 'required',
+            'received_IDCard_time' => 'required',
+            'address_before' => 'required',
+            'phone_number'=>'required',
+            'household_owner_relationship'=>'required',
+            'note'=>'required',
+        ]);
+
+        $household_id = session('household')->id;
+        //$household->quantity = $household->quantity + 1;
+        //$household->save();
+
+        $newPerson = new People();
+        $newPerson->fullname = $validatedData['fullname'];
+        $newPerson->identify_number = $validatedData['identify_number'];
+        if ($validatedData['sex'] == 'male'){
+            $newPerson->sex = 0;
+        }else{
+            $newPerson->sex = 1;
         }
+        $newPerson->birthday = $validatedData['birthday'];
+        $newPerson->place_of_birth = $validatedData['place_of_birth'];
+        $newPerson->ethnic = $validatedData['ethnic'];
+        //$owner->job = $request->input('job');
+        //$owner->office = $request->input('office');
+        $newPerson->received_IDCard_place = $validatedData['received_IDCard_place'];
+        $newPerson->received_IDCard_time = $validatedData['received_IDCard_time'];
+        $newPerson->phone_number = $validatedData['phone_number'];
+        $newPerson->domicile = $validatedData['domicile'];   // nguyen quan 
+        $newPerson->address_before = $validatedData['address_before'];
+        $newPerson->household_owner_relationship = $validatedData['household_owner_relationship'];
+        $newPerson->state = 0; // khi tao ho khau thi mac dinh la 0
+        $newPerson->note = $validatedData['note'] ;
+        
+        $newPerson-> household_id = $household_id;  
+        $newPerson->save();
+
+        $people = People::where('household_id','=',$household_id)->get();
+    
+        return redirect('household/list')->with([
+            'message' => 'Add person success',
+            'people'=>$people,
+        ]);
+
     }
 
 }

@@ -25,40 +25,58 @@
         </div>
 
         <div class="detail_info">
+            <?php
+                $currentRoute = \Illuminate\Support\Facades\Route::currentRouteName();
+            ?>
+            
             <div class="left_col_info">
                 <h1>THÔNG TIN CHỦ HỘ</h1>
                 <div class="people_info">
                     <div class="info">
                         <label>Họ và tên:</label>
-                        <span>null</span>
+                        @if(session('owner'))
+                        <span>{{session('owner')->fullname}}</span>
+                        @else
+                        <span>Null</span>
+                        @endif
                     </div>
                     <div class="info">
-                        <label>Ngày sinh: </label>
-                        <span>null</span>
+                        <label>CCCD/CMT: </label>
+                        @if(session('owner'))
+                        <span>{{session('owner')->identify_number}}</span>
+                        @else
+                        <span>Null</span>
+                        @endif
                     </div>
                     <div class="info">
                         <label>Địa chỉ: </label>
-                        <span>null</span>
+                        @if(session('household'))
+                        <span>{{session('household')->address}}</span>
+                        @else
+                        <span>Null</span>
+                        @endif
                     </div>
                 </div>
 
                 <button>
-                    <a href="#">Thêm chủ hộ</a>
+                    <a href="{{url('household/create_owner')}}">Thêm chủ hộ</a>
                 </button>
             </div>
 
             <div class="right_col_info">
                 <h1>THÀNH VIÊN HỘ GIA ĐÌNH</h1>
                 <ul>
-                    <li><a href="#">Nguyễn Văn A</a></li>
-                    <li><a href="#">Nguyễn Văn A</a></li>
-                    <li><a href="#">Nguyễn Văn A</a></li>
-                    <li><a href="#">Nguyễn Văn A</a></li>
+                    @if(session('people'))
+                        @foreach(session('people') as $person)
+                        <li><a href="#">{{$person->fullname}}</a></li>
+                        @endforeach
+                    @endif
                 </ul>
                 <button>
-                    <a href="#">Thêm thành viên</a>
+                    <a href="{{url('household/add_people')}}">Thêm thành viên</a>
                 </button>
             </div>
+            
         </div>
     </div>
 @endsection
