@@ -3,7 +3,16 @@
 @section('content')
     <div class="content_container">
         <div class="content_control">
-            <x-search-bar/>
+            <form action="{{ route('meetings.index') }}" method="GET" role="search">
+                <div class="search_bar">
+                    <input type="text" class="search" name="term" id="term"  placeholder="Search">
+                    {{-- <input type="text" class="form-control mr-2" name="term" placeholder="Search projects" id="term">
+                        <a href="{{ route('projects.index') }}" class=" mt-1"> --}}
+                    <button class="fas fa-search" type="submit" title="Search projects">
+                        
+                    </button>
+                </div>
+            </form>
             <?php
             $message = "Thêm Cuộc Họp";
             $type = "primary_button";
@@ -11,7 +20,29 @@
             {{-- <x-button :message="$message" :type="$type"/> --}}
             <a href="{{ url('meeting/add') }}" class="primary_button">Thêm Cuộc Họp</a>
         </div>
+        <br>
+        <?php
+            
+            $message = Session::get('message');
+            $message1 = Session::get('message1');
+            $message2 = Session::get('message2');
 
+            if ($message){
+                echo '<span>'.$message.'</span>';
+                Session::put('message',null);
+            }
+
+            if ($message1){
+                echo '<span style="color:green">'.$message1.'</span>';
+                Session::put('message1',null);
+            }
+
+            if ($message2){
+                echo '<span style="color:red">'.$message2.'</span>';
+                Session::put('message2',null);
+            }
+
+        ?>
         <div class="table_of_contents">
             <table>
                 <thead>
@@ -26,7 +57,7 @@
                 </thead>
                 <tbody>
                 @foreach($meetings as $item)
-                <tr>
+                <tr class="row-link" data-url="{{ route('meetings.edit',$item->id) }}">
                     <td>{{$item->id}}</td>
                     <td>{{$item->title}}</td>
                     <td>{{$item->time}}</td>

@@ -19,15 +19,25 @@
                 }
             </script>
             <!-- -->
-            <div class="control_btn">
-                <x-button :message="$editBtnMessage" :type="$editBtnType"/>
-                <x-button :message="$deleteBtnMessage" :type="$deleteBtnType"/>
-            </div>
+            
+                <div class="control_btn" >              
+                    {{-- <x-button :message="$deleteBtnMessage" :type="$deleteBtnType"/> --}}
+                    {{-- <a href="#" class=dangerous_button>
+                        Xóa
+                    </a> --}}
+                    <form action="{{ route('meetings.destroy',$meeting->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class=dangerous_button >Xóa</button>
+                        
+                    </form>
+                </div>
+                
         </div>
 
 
         <div class="form_container">
-            <form action="{{ route('meetings.update',$meeting->id) }}" method="POST" >
+            <form action="{{ url('update-meeting/'.$meeting->id) }}" method="POST" >
                 @csrf
                 @method('PUT')
                 {{--avt choose file--}}
@@ -39,18 +49,19 @@
                     <label for="place">Place: </label>
                     <input type="text" name="place" value="{{ $meeting->place}}" placeholder="example">
                 </div>
-                {{-- <div class="form_group">
+                <div class="form_group">
                     <label for="time">Time: </label>
-                    <input type="date" name="time" placeholder="example">
+                    <input type="datetime-local" name="time" value="{{ $meeting->time}}" placeholder="example">
+                   
                 </div>
                 <div class="form_group">
                     <label for="number_of_paticipants">Number_of_paticipants: </label>
-                    <input type="text" name="number_of_paticipants" placeholder="example">
+                    <input type="text" name="number_of_paticipants" value="{{  $meeting->number_of_paticipants}}" placeholder="example">
                 </div>
                 <div class="form_group">
                     <label for="status">Status: </label>
-                    <input type="text" name="status" placeholder="example">
-                </div> --}}
+                    <input type="text" name="status" value="{{ $meeting->status}}" placeholder="example">
+                </div>
                 
                 <button type="submit">Gửi</button>
             

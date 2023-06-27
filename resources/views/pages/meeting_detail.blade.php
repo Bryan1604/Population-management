@@ -20,8 +20,19 @@
             </script>
             <!-- -->
             <div class="control_btn">
-                <x-button :message="$editBtnMessage" :type="$editBtnType"/>
-                <x-button :message="$deleteBtnMessage" :type="$deleteBtnType"/>
+                {{-- <x-button :message="$editBtnMessage" :type="$editBtnType"/> --}}
+                <a href="{{ route('meetings.edit',$meeting_detail->id) }}" class="secondary_button">
+                    Chỉnh Sửa
+                </a>
+                
+
+                {{-- <x-button :message="$deleteBtnMessage" :type="$deleteBtnType"/> --}}
+                <form action="{{ route('meetings.destroy',$meeting_detail->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class=dangerous_button >Xóa</button>
+                    
+                </form>
             </div>
         </div>
 

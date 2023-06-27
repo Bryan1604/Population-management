@@ -74,7 +74,10 @@ Route::get('absent/add', function () {
 // });
 Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pages/meeting_list');
 Route::get('meeting/detail/{id}', [MeetingController::class,'getMeetingDetail'])->name('pages/meeting_detail');
-Route::get('meeting/edit', [MeetingController::class,'edit'])->name('pages/meeting_edit');
+
+
+
+
 
 
 
@@ -101,3 +104,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('meetings', MeetingController::class);
+
+Route::get('/edit-meeting/{meeting_id}','App\Http\Controllers\MeetingController@edit');
+
+Route::put('/update-meeting/{meeting_id}','App\Http\Controllers\MeetingController@update');
+Route::get('/search-meeting','App\Http\Controllers\MeetingController@search');
+Route::get('/delete-meeting/{meeting_id}','App\Http\Controllers\MeetingController@destroy');
+
+
