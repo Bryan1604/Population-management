@@ -43,7 +43,7 @@
                 <h1>THÀNH VIÊN HỘ GIA ĐÌNH</h1>
                 <ul>
                     @foreach($member_list as $member)
-                    <li><a href="#">{{$member->fullname}}</a></li>
+                    <li><a href="{{url('people/detail/'.$member->id)}}">{{$member->fullname}}</a></li>
                     @endforeach
                 </ul>
             </div>

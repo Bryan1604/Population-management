@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Household;
 use App\Models\People;
 use Illuminate\Auth\Events\Validated;
+use Illuminate\Http\Client\ResponseSequence;
 use Illuminate\Support\Facades\Session;
+use Monolog\Handler\FirePHPHandler;
+
 class HouseholdController extends Controller
 {
     public function getAllHousehold(Request $request){
@@ -28,7 +31,7 @@ class HouseholdController extends Controller
 
     public function getHouseholdDetail($household_id){
         $household_detail = Household::with('owner')->find($household_id);
-        $member_list = People::where('household_id',$household_id)->selectRaw('fullname')->get();
+        $member_list = People::where('household_id',$household_id)->selectRaw('fullname')->selectRaw('id')->get();
         return view('pages/house_hold_detail',['household_detail'=>$household_detail,'member_list'=>$member_list]); 
     }
 
@@ -68,7 +71,6 @@ class HouseholdController extends Controller
 
         $household = new Household();
         $household->quantity = 1;
-       
 
             $owner = new People();
             $owner->fullname = $validatedData['fullname'];
@@ -103,6 +105,9 @@ class HouseholdController extends Controller
             $household->save();
 
             $people = People::with('household')->where('household_id','=',$household->id)->get();
+
+            Session::put('household_id',$household->id);
+            //Session::put('owner',$owner);
         return redirect('household/add')->with([
             'message' => 'Add owner success',
             'household'=>$household,
@@ -111,7 +116,7 @@ class HouseholdController extends Controller
         ]);
     }
 
-    public function addNewPeopeleToHousehold(){
+    public function addNewPeopleToHousehold(){
         return view('pages.people_create_form');
     }
 
@@ -133,9 +138,7 @@ class HouseholdController extends Controller
             'note'=>'required',
         ]);
 
-        $household_id = session('household')->id;
-        //$household->quantity = $household->quantity + 1;
-        //$household->save();
+        $household_id = Session::get('household_id');
 
         $newPerson = new People();
         $newPerson->fullname = $validatedData['fullname'];
@@ -158,17 +161,23 @@ class HouseholdController extends Controller
         $newPerson->household_owner_relationship = $validatedData['household_owner_relationship'];
         $newPerson->state = 0; // khi tao ho khau thi mac dinh la 0
         $newPerson->note = $validatedData['note'] ;
-        
         $newPerson-> household_id = $household_id;  
         $newPerson->save();
 
         $people = People::where('household_id','=',$household_id)->get();
-    
-        return redirect('household/list')->with([
+        $household = Household::find($household_id);
+        $owner = People::find($household->owner_id);
+        
+        return redirect('household/add')->with([
             'message' => 'Add person success',
             'people'=>$people,
+            'owner'=>$owner,
+            'household'=>$household
         ]);
+    }
 
+    public function sendInfo(){
+        return redirect('household/list')->with('message','Tạo hộ khẩu thành công');
     }
 
 }

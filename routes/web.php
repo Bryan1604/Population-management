@@ -27,13 +27,14 @@ Route::get('/dashboard',[PeopleController::class,'calculateChart'])->name('pages
 Route::get('household/list', [HouseholdController::class,'getAllHousehold'])->name('pages.house_hold_list');
 Route::get('household/detail/{id}', [HouseholdController::class,'getHouseholdDetail'])->name('pages.house_hold_detail');
 Route::get('household/search','HouseholdController@search'); // can sua lai 
-Route::get('/household/add', function () {
+Route::get('household/add', function () {
     return view('pages/house_hold_create');
 })->name('pages.house_hold_add');
+Route::get('household/sendInfo',[HouseholdController::class,'sendInfo'])->name('pages.house_hold_send_info');
 
 Route::get('household/create_owner',[HouseholdController::class, 'createHousehold'])->name('pages.create_owner');
 Route::post('household/create_owner',[HouseholdController::class, 'storeHousehold'])->name('pages.store_owner');
-Route::get('household/add_people',[HouseholdController::class,'addNewPeopeleToHousehold'])->name('pages.add_new_person');
+Route::get('household/add_people',[HouseholdController::class,'addNewPeopleToHousehold'])->name('pages.add_new_person');
 Route::post('household/add_people',[HouseholdController::class,'storeNewPeopleToHousehold'])->name('pages.store_new_person');
        
 Route::get('people/list', [PeopleController::class,'getAllPeople'])->name('pages.people_list');

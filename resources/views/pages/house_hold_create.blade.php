@@ -14,14 +14,14 @@
             -->
             <button onclick="goback()" class="primary_button">Quay Lại</button>
             <div class="control_btn">
-                <x-button :message="$submitBtnMessage" :type="$submitBtnType"/>
-            </div>
-
+                <x-button :message="$submitBtnMessage" :type="$submitBtnType" onclick="submit()" />
+            </div> 
             <script>
-                function goback(){
-                    window.history.back();
+                function submit(){
+                    window.location.href = "/household/list";
                 }
             </script>
+
         </div>
 
         <div class="detail_info">
@@ -57,10 +57,15 @@
                         @endif
                     </div>
                 </div>
-
+                
                 <button>
+                    @if(!session('owner'))
                     <a href="{{url('household/create_owner')}}">Thêm chủ hộ</a>
+                    @else
+                    <a href="{{url('household/create_owner')}}">Chỉnh sửa thông tin chủ hộ</a>
+                    @endif
                 </button>
+               
             </div>
 
             <div class="right_col_info">
@@ -72,9 +77,11 @@
                         @endforeach
                     @endif
                 </ul>
+                @if(session('owner'))
                 <button>
                     <a href="{{url('household/add_people')}}">Thêm thành viên</a>
                 </button>
+                @endif
             </div>
             
         </div>
