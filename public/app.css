@@ -203,6 +203,8 @@
 .content_container .table_of_contents {
   width: 100%;
   margin-top: 40px;
+  height: 400px;
+  overflow-y: auto;
 }
 .content_container .table_of_contents table {
   width: 100%;
@@ -567,6 +569,15 @@
 }
 .content_container .chart_container_down .gender_chart {
   margin-top: 10px;
+}
+
+.content_container .left_col_info {
+  margin: 40px auto;
+}
+.content_container .left_col_info .avt_img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
 }
 
 * {

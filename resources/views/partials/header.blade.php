@@ -9,11 +9,12 @@
         <?php
         $currentRoute = \Illuminate\Support\Facades\Route::currentRouteName();
         ?>
-
-        @if($currentRoute == 'pages.house_hold_list')
+        @if($currentRoute == 'pages.dashboard')
+            <h1>Thống kê</h1>
+        @elseif($currentRoute == 'pages.house_hold_list')
             <h1>Danh sách hộ khẩu</h1>
         @elseif($currentRoute == 'pages.house_hold_detail')
-            <h1>Thông tin hộ khẩu</h1>
+            <h1>Hộ Khẩu chi tiết</h1>
         @elseif($currentRoute == 'pages.house_hold_add')
             <h1>Thêm hộ khẩu</h1>
         @elseif($currentRoute == 'pages.people_list')
@@ -29,7 +30,7 @@
         @elseif($currentRoute == 'pages.staying_detail')
             <h1>Thông tin tạm trú</h1>
         @elseif($currentRoute == 'pages.staying_add')
-            <h1>Staying Create</h1>
+            <h1>Thêm thông tin tạm trú</h1>
         @elseif($currentRoute == 'pages.absent_list')
             <h1>Danh sách tạm vắng</h1>
         @elseif($currentRoute == 'pages.absent_detail')
@@ -40,8 +41,6 @@
             <h1>Danh sách cuộc họp</h1>
         @elseif($currentRoute == 'pages.meeting_manage')
             <h1>Quản lý cuộc họp</h1>
-        @elseif($currentRoute == 'pages.dashboard')
-            <h1>Thống kê</h1>
         @elseif($currentRoute == 'pages.create_owner')
             <h1>Thông tin chủ hộ</h1>
         @endif

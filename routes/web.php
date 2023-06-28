@@ -54,23 +54,14 @@ Route::get('staying/add', [TemporaryResidenceFormController::class,'create'])->n
 Route::post('staying/add',[TemporaryResidenceFormController::class,'store'])->name('pages.staying_create_form_store');
 Route::get('staying/delete/{id}',[TemporaryResidenceFormController::class,'destroy'])->name('pages.staying_list_delete');
 
-Route::get('absent/list', function () {
-    return view('pages/temporarily_absent_list');
-})->name('pages.absent_list');
+Route::get('absent/list', [TemporaryAbsenceFormController::class,'getAll'])->name('pages.absent_list');
+Route::get('absent/detail/{id}', [TemporaryAbsenceFormController::class,'absentInfoDetail'])->name('pages.absent_detail');
+Route::get('absent/add', [TemporaryAbsenceFormController::class,'create'])->name('pages.absent_add');
+Route::post('absent/add',[TemporaryAbsenceFormController::class,'store'])->name('pages.absent_store');
+Route::get('getOnePerson/{id}',[TemporaryAbsenceFormController::class,'getOnePerson']);
+Route::get('absent/delete/{id}',[TemporaryAbsenceFormController::class,'destroy'])->name('pages.absent_destroy');
 
-Route::get('absent/detail', function () {
-    return view('pages/temporarily_absent_detail');
-})->name('pages.absent_detail');
-
-Route::get('absent/add', function () {
-    return view('pages/temporarily_absent_create_form');
-})->name('pages.absent_add');
-
-// Route::get('meeting/list', function () {
-//     return view('pages/meeting_list');
-// });
 Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pages.meeting_list');
-
 
 Route::get('meeting/manage', function () {
     return view('pages.meeting_manage');
