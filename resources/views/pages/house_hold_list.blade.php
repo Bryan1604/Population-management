@@ -33,7 +33,7 @@
                 </thead>
                 <tbody>
                     @foreach($household as $item)
-                    <tr  class="row-link" data-url="{{ url('household/detail/'.$item->id) }}">
+                    <tr  >
                         <td>{{$item->id}}</td>
                         <td>{{$item->owner->fullname}}</td>
                         <td>{{$item->quantity}}</td>

@@ -64,8 +64,31 @@ Route::get('absent/add', [TemporaryAbsenceFormController::class,'create'])->name
 Route::post('absent/add',[TemporaryAbsenceFormController::class,'store'])->name('pages.absent_store');
 Route::get('getOnePerson/{id}',[TemporaryAbsenceFormController::class,'getOnePerson']);
 Route::get('absent/delete/{id}',[TemporaryAbsenceFormController::class,'destroy'])->name('pages.absent_destroy');
+// Route::get('absent/list', function () {
+//     return view('pages/temporarily_absent_list');
+// });
 
+// Route::get('absent/detail', function () {
+//     return view('pages/temporarily_absent_detail');
+// });
+
+// Route::get('absent/add', function () {
+//     return view('pages/temporarily_absent_create_form');
+// });
+
+// Route::get('meeting/list', function () {
+//     return view('pages/meeting_list');
+// });
 Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pages.meeting_list');
+Route::get('meeting/detail/{id}', [MeetingController::class,'getMeetingDetail'])->name('pages/meeting_detail');
+
+// Route::get('/people/detail', function () {
+//     return view('pages/people_detail');
+// });
+
+Route::get('/meeting/add', function () {
+    return view('pages/meeting_create_form');
+});
 
 Route::get('meeting/manage', function () {
     return view('pages.meeting_manage');
@@ -74,3 +97,17 @@ Route::get('meeting/manage', function () {
 Route::get('test/form', function () {
     return view('pages.test_form');
 });
+
+//Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('meetings', MeetingController::class);
+
+Route::get('/edit-meeting/{meeting_id}','App\Http\Controllers\MeetingController@edit');
+
+Route::put('/update-meeting/{meeting_id}','App\Http\Controllers\MeetingController@update');
+Route::get('/search-meeting','App\Http\Controllers\MeetingController@search');
+Route::get('/delete-meeting/{meeting_id}','App\Http\Controllers\MeetingController@destroy');
+
+
