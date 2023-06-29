@@ -24,7 +24,7 @@
         @elseif($currentRoute == 'pages.people_add')
             <h1>Thêm nhân khẩu</h1>
         @elseif($currentRoute == 'pages.staying_absent_direction')
-            <h1>Direction</h1>
+            <h1>Tạm trú / Tạm vắng</h1>
         @elseif($currentRoute == 'pages.staying_list')
             <h1>Danh sách tạm trú</h1>
         @elseif($currentRoute == 'pages.staying_detail')
