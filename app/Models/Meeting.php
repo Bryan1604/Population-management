@@ -10,7 +10,6 @@ class Meeting extends Model
     use HasFactory;
     protected $table = 'meeting';
     protected $fillable = [
-        'id',
         'time',
         'place',
         'title',

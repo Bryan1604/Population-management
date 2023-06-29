@@ -13,15 +13,16 @@ class TemporaryAbsenceForm extends Model
     
     protected $table = 'temporary_absence_form';
     protected $fillable = [
-        'id',
         'people_id',
         'move_place',
-        'move_time'
+        'move_time',
+        'reason',
+        'note',
     ];
 
     public function people(): HasOne
     {
-        return $this->hasOne(People::class);
+        return $this->hasOne(People::class,'id','people_id');
     }
     
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table-> dateTime('time');
             $table->string('place');
             $table->string('title');
-            $table->integer('number_of_paticipants');
+            $table->integer('number_of_participants');
             $table->integer('status');
             $table->timestamps();
         });

@@ -7,15 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-
-
 class Household extends Model
 {
     use HasFactory;
 
     protected $table = 'household';
     protected $fillable =[
-        'id',
         'owner_id',
         'address',
         'quantity'
@@ -28,7 +25,7 @@ class Household extends Model
 
     public function owner():HasOne
     {
-        return $this->hasOne(People::class, $this->owner_id);
+        return $this->hasOne(People::class,'id' ,'owner_id');
     }
     // add relational 
 }

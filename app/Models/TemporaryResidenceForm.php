@@ -12,13 +12,14 @@ class TemporaryResidenceForm extends Model
     use HasFactory;
     protected $table = "temporary_residence_form";
     protected $fillable = [
-        'id',
         'people_id',
+        'address',
+        'reason'.
         'note'
     ];
 
-    public function people():HasOne
+    public function people(): HasOne
     {
-        return $this->hasOne(People::class);
+        return $this->hasOne(People::class,'id','people_id');
     }
 }

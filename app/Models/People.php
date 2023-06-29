@@ -13,7 +13,6 @@ class People extends Model
 
     protected $table = "people";
     protected $fillable = [
-        'id',
         'household_id',
         'fullname',
         'sex',
@@ -37,7 +36,7 @@ class People extends Model
     // add realational 
     public function household(): HasOne
     {
-        return $this->hasOne(Household::class);
+        return $this->hasOne(Household::class,'id','household_id');
     }
 
     public function isOwner(): BelongsTo      // tra ve ho khau ma mk la chu 
@@ -50,7 +49,7 @@ class People extends Model
         return $this->belongsTo(TemporaryAbsenceForm::class);
     }
 
-    public function temporaryResidenceForm():BelongsTo
+    public function temporaryResidenceForm()
     {
         return $this->belongsTo(TemporaryResidenceForm::class);
     }

@@ -1,0 +1,66 @@
+.content_container {
+    .content_control{
+
+    }
+
+    .form_container{
+        margin: 0 auto;
+        width: 70%;
+
+        .form_group{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 10px;
+
+            label{
+                font-size: 16px;
+                font-weight: 400;
+                color: #141414;
+            }
+            input{
+                max-width: 70%;
+                padding: 6px 0px 6px 10px;
+                border-radius: 5px;
+                flex: 1;
+                background-color: rgba(255, 255, 255, 0.6);
+            }
+        }
+        .choose_info
+        {
+            display: flex;
+            margin-top: 10px;
+            gap: 20px;
+            .radio_input{
+                display: inline;
+            }
+        }
+        button{
+            margin-top: 60px;
+            padding: 6px 40px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-image: linear-gradient(to bottom right, rgba(53, 211, 0, 0.7), rgba(78, 130, 0, 0.7));
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 9px #999;
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: 500;
+            color: #ffffff;
+
+            &:hover {background-color: #3e8e41}
+            &:active {
+                background-color: #3e8e41;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+        }
+    }
+}

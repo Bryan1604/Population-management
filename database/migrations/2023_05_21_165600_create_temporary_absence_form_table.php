@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('people_id');
             $table->date('move_time');
             $table->string('move_place');
+            $table->text('reason');
+            $table->text('note');
             $table->timestamps();
         });
     }
