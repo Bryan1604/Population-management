@@ -6,6 +6,7 @@ use App\Models\Household;
 use App\Models\People;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Contracts\Session\Session;
 
 class PeopleController extends Controller
 {
@@ -89,8 +90,24 @@ class PeopleController extends Controller
         return redirect('people/list')->with('message','saved successfully');
     }
 
+    
     // them 1 nhan khau vao ho khau da co
-    public function addPeople(Request $request, $household_id){
+    public function addNewPerson($household_id){
+        $household = Household::find($household_id);
+        $owner = $household->owner;
+        $people = People::where('household_id','=',$household_id)->get();
+        session()->put('household',$household);
+        session()->put('owner',$owner);
+        session()->put('people',$people);
+        session()->put('household_id',$household_id);
+        return view('pages.house_hold_create')
+            ->with('household',$household)
+            ->with('household_id',$household_id)
+            ->with('people',$people)
+            ->with('owner',$owner)
+        ;
+    }
+    public function storeNewPerson(Request $request, $household_id){
         $validatedData = $request->validate([
             'fullname' => 'required',
             'sex' => 'required',
@@ -107,28 +124,38 @@ class PeopleController extends Controller
             'note'=>'required',
         ]);
     
-        $people = new People();
-        $people->household_id = $household_id;
-        $people->fullname = $validatedData['fullname'];
+        $household_id = session()->get('household_id');
+        $newPerson = new People();
+        $newPerson->household_id = $household_id;
+        $newPerson->fullname = $validatedData['fullname'];
         if($validatedData['sex'] == 'male'){
-            $people->sex = 0;
+            $newPerson->sex = 0;
         }else{
-            $people->sex = 1;
+            $newPerson->sex = 1;
         }
-        $people->birthday = $validatedData['birthday'];
-        $people->place_of_birth = $validatedData['place_of_birth'];
-        $people->identify_number = $validatedData['identify_number'];
-        $people->received_IDCard_place = $validatedData['received_IDCard_place'];
-        $people->received_IDCard_time = $validatedData['received_IDCard_time'];
-        $people->address_before = $validatedData['address_before'];
-        $people->phone_number = $validatedData['phone_number'];
-        $people->state = 0;
-        $people->ethnic = $validatedData['ethnic'];
-        $people->domicile =  $validatedData['domicile'];
-        $people->household_owner_relationship = $validatedData['household_owner_relationship'];
-        $people->save();
-        return redirect('pages.house_hold_create')->with('message','Add people successful');
+        $newPerson->birthday = $validatedData['birthday'];
+        $newPerson->place_of_birth = $validatedData['place_of_birth'];
+        $newPerson->identify_number = $validatedData['identify_number'];
+        $newPerson->received_IDCard_place = $validatedData['received_IDCard_place'];
+        $newPerson->received_IDCard_time = $validatedData['received_IDCard_time'];
+        $newPerson->address_before = $validatedData['address_before'];
+        $newPerson->phone_number = $validatedData['phone_number'];
+        $newPerson->state = 0;
+        $newPerson->ethnic = $validatedData['ethnic'];
+        $newPerson->domicile =  $validatedData['domicile'];
+        $newPerson->household_owner_relationship = $validatedData['household_owner_relationship'];
+        $newPerson->save();
+
+        $household = Household::with('owner')->find($household_id)->first();
+        $people = People::where('household_id','=',$household_id);
+        $owner = People::find($household->owner_id) ;
+        return view('pages.house_hold_create')
+            ->with('message', 'thêm nhân khẩu thành công')
+            ->with('people',$people)
+            ->with('household',$household)
+            ->with('owner',$owner)
+            ->with('household_id',$household_id);
     }
 
-    // sua thong tin nhan khau
+  
 }

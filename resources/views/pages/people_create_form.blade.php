@@ -23,9 +23,16 @@
             if ($currentRoute == 'pages.create_owner'){
                 // thêm chủ hộ 
                 $action = "household/create_owner";
-            }else{
-                // them nguoi vao ho khau 
-                $action = "household/add_people";
+            }else {
+
+                $previousRoute = url()->previous();
+                if($previousRoute == "household/add"){
+                     // them nguoi vao ho khau 
+                    $action = "household/add_people";
+                }else{
+                    $household_id= session('household_id');
+                    $action = "household/detail/{$household_id}/addNewPerson";
+                }
             }
             ?>
             <form action="{{url($action)}}" method="POST">

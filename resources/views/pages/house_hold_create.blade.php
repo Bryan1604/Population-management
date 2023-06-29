@@ -14,7 +14,8 @@
             -->
             <button onclick="goback()" class="primary_button">Quay Lại</button>
             <div class="control_btn">
-                <x-button :message="$submitBtnMessage" :type="$submitBtnType" onclick="submit()" />
+                <button onclick="submit()" class="secondary_button">Gửi</button>
+                <!-- <x-button :message="$submitBtnMessage" :type="$submitBtnType" onclick="submit()" /> -->
             </div> 
             <script>
                 function submit(){

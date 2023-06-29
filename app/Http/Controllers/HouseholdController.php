@@ -168,12 +168,18 @@ class HouseholdController extends Controller
         $household = Household::find($household_id);
         $owner = People::find($household->owner_id);
         
-        return redirect('household/add')->with([
-            'message' => 'Add person success',
-            'people'=>$people,
-            'owner'=>$owner,
-            'household'=>$household
-        ]);
+        // return redirect('household/add')->with([
+        //     'message' => 'Add person success',
+        //     'people'=>$people,
+        //     'owner'=>$owner,
+        //     'household'=>$household
+        // ]);
+        return view('pages.house_hold_create')
+            ->with('message', 'Add person success')
+            ->with('people',$people)
+            ->with('household',$household)
+            ->with('owner',$owner)
+            ->with('household_id',$household_id);
     }
 
     public function sendInfo(){

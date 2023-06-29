@@ -14,13 +14,18 @@
             <!-- <x-button :message="$backBtnMessage" :type="$backBtnType"/> -->
             <button onclick="goback()" class="primary_button">Quay Lại</button>
             <div class="control_btn">
-                <x-button :message="$editBtnMessage" :type="$editBtnType"/>
+                <button onclick="addNewPerson()" class="secondary_button">Chỉnh Sửa</button>
+                <!-- <x-button :message="$editBtnMessage" :type="$editBtnType"/> -->
                 <x-button :message="$deleteBtnMessage" :type="$deleteBtnType"/>
             </div>
 
             <script>
                 function goback(){
                     window.history.back();
+                }
+
+                function addNewPerson(){
+                    window.location.href = "{{ route('pages.add_new_person_into_household', $household_detail->id) }}";
                 }
             </script>
         </div>
@@ -30,7 +35,7 @@
                 <img src="/images/avt.jpg" alt="">
                 <div class="head-of-house-hold-info">
                     <div class="info">
-                        <label>Họ và tên:</label>
+                        <label>Họ và tên chủ hộ:</label>
                         <span>{{$household_detail->owner->fullname}}</span>
                     </div>
                     <div class="info">

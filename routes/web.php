@@ -26,6 +26,9 @@ Route::get('/dashboard',[PeopleController::class,'calculateChart'])->name('pages
 
 Route::get('household/list', [HouseholdController::class,'getAllHousehold'])->name('pages.house_hold_list');
 Route::get('household/detail/{id}', [HouseholdController::class,'getHouseholdDetail'])->name('pages.house_hold_detail');
+Route::get('household/detail/{id}/addNewPerson',[PeopleController::class,'addNewPerson'])->name('pages.add_new_person_into_household'); // them nhan khau vao 1 ho khau 
+Route::post('household/detail/{id}/addNewPerson',[PeopleController::class,'storeNewPerson'])->name('pages.store_new_person_into_household');
+
 Route::get('household/search','HouseholdController@search'); // can sua lai 
 Route::get('household/add', function () {
     return view('pages/house_hold_create');
