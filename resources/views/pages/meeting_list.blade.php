@@ -65,8 +65,11 @@
                     <td>{{$item->created_at}}</td>
                     <td>
                         <a href="{{url('meeting/detail/'.$item->id)}}" class="primary_button">Xem</a>
+                        <br>
                         <a href="{{ route('meetings.edit',$item->id) }}" class="primary_button">Sửa</a>
-                        {{-- <a href="#" class="primary_button">Xóa</a> --}}
+                        <br>
+                        <a href="{{ route('meeting_manage.show',$item->id) }}" class="primary_button">List</a>
+                        <!-- {{-- <a href="#" class="primary_button">Xóa</a> --}} -->
 
                         <form action="{{ route('meetings.destroy',$item->id) }}" method="POST">
                             @csrf

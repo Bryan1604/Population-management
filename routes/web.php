@@ -111,4 +111,6 @@ Route::put('/update-meeting/{meeting_id}','App\Http\Controllers\MeetingControlle
 Route::get('/search-meeting','App\Http\Controllers\MeetingController@search');
 Route::get('/delete-meeting/{meeting_id}','App\Http\Controllers\MeetingController@destroy');
 
+Route::resource('meeting_manage','App\Http\Controllers\MeetingManageController');
+
 

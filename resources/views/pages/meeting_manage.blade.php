@@ -13,9 +13,10 @@
             <x-button :message="$confirmMessage" :type="$type"/>
         </div>
 
-        <form class="meeting" action="" method="">
+        <form class="meeting" action="{{ route('meeting_manage.store',$id) }}" method="POST">
+            @csrf
             <button type="submit">Thêm nhân khẩu vào cuộc họp:</button>
-            <input type="text" name="add_house_hold" placeholder="Mã nhân khẩu">
+            <input type="integer" name="add_house_hold" placeholder="Mã nhân khẩu">
         </form>
 
         <div class="table_of_contents">

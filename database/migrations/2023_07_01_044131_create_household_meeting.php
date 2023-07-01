@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('participate_meeting_form', function (Blueprint $table) {
+        Schema::create('household_meeting', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->bigInteger('meeting_id')->unsigned();
-            $table->integer('household_id');
-            $table->integer('status');
+            $table->integer('owner_id')->unique();
+            $table->String('address');
+            $table->integer('quantity');
             $table->timestamps();
 
-            $table->foreign('meeting_id')->references('id')->on('meeting');
-            $table->foreign('household_id')->references('owner_id')->on('household_meeting');
-
+            
         });
     }
 
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('participate_meeting_form');
+        Schema::dropIfExists('household_meeting');
     }
 };
