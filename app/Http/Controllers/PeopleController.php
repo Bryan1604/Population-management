@@ -149,12 +149,18 @@ class PeopleController extends Controller
         $household = Household::with('owner')->find($household_id)->first();
         $people = People::where('household_id','=',$household_id);
         $owner = People::find($household->owner_id) ;
-        return view('pages.house_hold_create')
-            ->with('message', 'thêm nhân khẩu thành công')
-            ->with('people',$people)
-            ->with('household',$household)
-            ->with('owner',$owner)
-            ->with('household_id',$household_id);
+
+        session()->forget('people');
+        session()->forget('household');
+        session()->forget('household_id');
+        session()->forget('owner');
+
+        return redirect('household/add');
+            // ->with('message', 'thêm nhân khẩu thành công')
+            // ->with('people',$people)
+            // ->with('household',$household)
+            // ->with('owner',$owner)
+            // ->with('household_id',$household_id);
     }
 
   

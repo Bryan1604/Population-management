@@ -81,13 +81,11 @@ Route::get('absent/delete/{id}',[TemporaryAbsenceFormController::class,'destroy'
 
 Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pages.meeting_list');
 Route::get('meeting/detail/{id}',[MeetingController::class,'getMeetingDetail'])->name('pages.meeting_detail');
-Route::get('meeting/manage', function () {
-    return view('pages.meeting_manage');
-})->name('pages.meeting_manage');
-
-Route::get('test/form', function () {
-    return view('pages.test_form');
-});
+Route::get('meeting/manage', function () {return view('pages.meeting_manage');})->name('pages.meeting_manage');
+Route::get('meeting/add', function() { return view('pages.meeting_create_form');})->name('pages.meeting_add');
+// Route::get('test/form', function () {
+//     return view('pages.test_form');
+// });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
