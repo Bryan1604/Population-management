@@ -72,7 +72,7 @@
                 <tr>
                     <th>Mã hộ khẩu</th>
                     <th>Họ và tên người tham gia</th>
-                    <th>Thao tác</th>
+                    <th>Mã hộ khẩu</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -80,11 +80,7 @@
                     <tr class="row-link">
                         <td>{{$item->id}}</td>
                         <td>{{$item->fullname}}</td>
-                        <td>
-                        <a href="#" class="primary_button">Xem</a>
-                        <a href="#" class="primary_button">Sửa</a>
-                        <a href="#" class="primary_button">Xóa</a>
-                        </td>
+                        <td>{{$item->household_id}}</td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -22,8 +22,8 @@ class MeetingController extends Controller
                 }
             } ]
         ])
-            ->orderBy("id","asc")
-            ->paginate(5);
+            ->orderBy("created_at","desc")->get();
+            //->paginate(5);
 
         return view('pages/meeting_list',compact('meetings'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -40,7 +40,7 @@ class MeetingController extends Controller
                 }
             } ]
         ])
-            ->orderBy("id","asc");
+            ->orderBy("id","asc")->get();
            // ->paginate(5);
 
         return view('pages/meeting_list',compact('meetings'))->with('i', (request()->input('page', 1) - 1) * 5);
@@ -49,7 +49,8 @@ class MeetingController extends Controller
 
     public function getMeetingDetail($id) {
         $meeting_detail = Meeting::find($id);
-        $participations = ParticipateMeetingForm::where('meeting_id', $id)->get();
+        $participations = ParticipateMeetingForm::where('meeting_id', $id)->get();  
+        $meeting_detail->number_of_paticipants = $participations->count();     
         $people_ids = $participations->pluck('people_id');
         $people = People::whereIn('id', $people_ids)->get();
         return view('pages.meeting_detail', ['meeting_detail' => $meeting_detail, 'people' => $people]);
@@ -68,15 +69,13 @@ class MeetingController extends Controller
             'title' => 'required',
             'time' => 'required',
             'place' => 'required',
-            'number_of_paticipants' => 'required',
+            'number_of_paticipants' => 0,
             'status' => 'required',
-
-
         ]);
   
         Meeting::create($request->all());
         session()->put('message','Create complete');
-        return redirect('meeting/list')->with('success','Post created successfully.');
+        return redirect('meeting/list')->with('success','Tạo cuộc họp thành công.');
     }
 
    
@@ -93,22 +92,22 @@ class MeetingController extends Controller
         $meeting->time = $request->input('time');
         $meeting->place = $request->input('place');
         $meeting->title = $request->input('title');
-        $meeting->number_of_paticipants = $request->input('number_of_paticipants');
+        //$meeting->number_of_paticipants = $request->input('number_of_paticipants');
         $meeting->status = $request->input('status');
         $meeting->update();
         session()->put('message1','Update complete');
-        return redirect('meeting/list')->with('success','Post created successfully.');
+        return redirect('meeting/list')->with('success','Cập nhât cuộc họp thành công.');
     }
 
     public function destroy($id)
     {
         $meeting =  Meeting::find($id);
-        $deletedId = $meeting->id;
+        //$deletedId = $meeting->id;
         $meeting->delete();
         session()->put('message2','Delete complete');
         //Meeting::where('id', '>', $deletedId)->decrement('id');
 
-        return redirect()->route('meetings.index')
+        return redirect('meeting/list')
                         ->with('success','Xoá nhân khẩu thành công');
     }
     

@@ -24,23 +24,23 @@
                 {{--avt choose file--}}
                 <div class="form_group">
                     <label for="title">Title: </label>
-                    <input type="text" name="title" placeholder="example">
+                    <input type="text" name="title">
                 </div>
                 <div class="form_group">
                     <label for="place">Place: </label>
-                    <input type="text" name="place" placeholder="example">
+                    <input type="text" name="place" >
                 </div>
                 <div class="form_group">
                     <label for="time">Time: </label>
-                    <input type="datetime-local" name="time" placeholder="example">
+                    <input type="datetime-local" name="time" >
                 </div>
-                <div class="form_group">
+                <!-- <div class="form_group">
                     <label for="number_of_paticipants">Number_of_paticipants: </label>
-                    <input type="text" name="number_of_paticipants" placeholder="example">
-                </div>
+                    <input type="text" name="number_of_paticipants" >
+                </div> -->
                 <div class="form_group">
                     <label for="status">Status: </label>
-                    <input type="text" name="status" placeholder="example">
+                    <input type="text" name="status">
                 </div>
                 
                 <button type="submit">Gửi</button>

@@ -43,24 +43,24 @@
                 {{--avt choose file--}}
                 <div class="form_group">
                     <label for="title">Title: </label>
-                    <input type="text" name="title" value="{{  $meeting->title}}" placeholder="example">
+                    <input type="text" name="title" value="{{  $meeting->title}}">
                 </div>
                 <div class="form_group">
                     <label for="place">Place: </label>
-                    <input type="text" name="place" value="{{ $meeting->place}}" placeholder="example">
+                    <input type="text" name="place" value="{{ $meeting->place}}">
                 </div>
                 <div class="form_group">
                     <label for="time">Time: </label>
-                    <input type="datetime-local" name="time" value="{{ $meeting->time}}" placeholder="example">
+                    <input type="datetime-local" name="time" value="{{ $meeting->time}}" >
                    
                 </div>
-                <div class="form_group">
+                <!-- <div class="form_group">
                     <label for="number_of_paticipants">Number_of_paticipants: </label>
-                    <input type="text" name="number_of_paticipants" value="{{  $meeting->number_of_paticipants}}" placeholder="example">
-                </div>
+                    <input type="text" name="number_of_paticipants" value="{{  $meeting->number_of_paticipants}}" >
+                </div> -->
                 <div class="form_group">
                     <label for="status">Status: </label>
-                    <input type="text" name="status" value="{{ $meeting->status}}" placeholder="example">
+                    <input type="text" name="status" value="{{ $meeting->status}}" >
                 </div>
                 
                 <button type="submit">Gửi</button>

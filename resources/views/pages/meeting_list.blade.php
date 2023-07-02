@@ -29,21 +29,33 @@
 
         
             if ($message){
-                echo '<span>'.$message.'</span>';
+                echo '<span id = "message">'.$message.'</span>';
                 session()->put('message',null);
             }
 
             if ($message1){
-                echo '<span style="color:green">'.$message1.'</span>';
+                echo '<span id = "message" style="color:green">'.$message1.'</span>';
                 session()->put('message1',null);
             }
 
             if ($message2){
-                echo '<span style="color:red">'.$message2.'</span>';
+                echo '<span id = "message" style="color:red">'.$message2.'</span>';
                 session()->put('message2',null);
             }
 
         ?>
+
+        <script>
+            setTimeout(function() {
+                var messageElements = document.getElementsById('message');
+                for (var i = 0; i < messageElements.length; i++) {
+                    messageElements[i].style.display = 'none';
+                }
+            }, 3000); // 3 seconds
+        </script>
+
+        
+            
         <div style="height: 400px; overflow-y: auto;" class="table_of_contents">
             <table>
                 <thead>
@@ -67,8 +79,19 @@
                     <td>
                         <a href="{{url('meeting/detail/'.$item->id)}}" class="primary_button">Xem</a>
                         <a href="{{ route('meetings.edit',$item->id) }}" class="primary_button">Sửa</a>
-                        {{-- <a href="#" class="primary_button">Xóa</a> --}}
-                        <a href="{{ route('meetings.destroy',$item->id) }}" class="primary_button">Xóa</a>
+                        <a href="{{ url('/delete-meeting/'.$item->id) }}" class="primary_button" onclick="confirmDelete(event)" >Xóa</a>
+                        
+                        <script>
+                            function confirmDelete(event) {
+                                event.preventDefault(); // Prevent the default link behavior
+
+                                // Show the confirmation alert
+                                if (confirm('Xóa cuộc họp')) {
+                                    // If confirmed, redirect to the delete URL
+                                    window.location.href = event.target.href;
+                                }
+                            }
+                        </script>
                         <!-- <form action="{{ route('meetings.destroy',$item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
