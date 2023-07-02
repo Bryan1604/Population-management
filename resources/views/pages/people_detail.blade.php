@@ -4,7 +4,7 @@
     <div class="content_container">
         <div class="content_control">
             <?php
-            $deleteBtnMessage = "Xóa";
+            $deleteBtnMessage = "Tách khẩu";
             $deleteBtnType = "dangerous_button";
             $editBtnMessage = "Chỉnh Sửa";
             $editBtnType = "secondary_button";
