@@ -4,7 +4,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        flex: 1;
         gap: 40px;
         border-right: 1px solid #ffffff;
 
@@ -46,6 +45,7 @@
 
     .right_col_info{
         padding-left: 40px;
+        width: 50%;
         .info{
             margin: 4px 0px 4px 0px;
             label, span{

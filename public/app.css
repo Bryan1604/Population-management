@@ -32,7 +32,7 @@
   box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   align-items: center;
-  max-width: 320px;
+  max-width: 310px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -55,6 +55,10 @@
 }
 .nav_menu .navigator .nav_menu_items .item_actived {
   background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+.nav_menu .navigator .nav_menu_items .item_unactive {
+  background-color: transparent;
   border-radius: 10px;
 }
 .nav_menu .navigator .nav_menu_items li {
@@ -119,15 +123,6 @@
   color: #141414;
   box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.15);
 }
-
-.content_container .content_control .search_bar button {
-  padding: 5px 10px 5px 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 0px 5px 5px 0px;
-  color: #141414;
-  box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.15);
-}
-
 .content_container .content_control .primary_button {
   padding: 6px 10px;
   font-size: 24px;
@@ -403,7 +398,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
   gap: 40px;
   border-right: 1px solid #ffffff;
 }
@@ -438,6 +432,7 @@
 }
 .detail_info .right_col_info {
   padding-left: 40px;
+  width: 50%;
 }
 .detail_info .right_col_info .info {
   margin: 4px 0px 4px 0px;
@@ -559,7 +554,7 @@
 
 .content_container .chart_container_up {
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 .content_container .chart_container_up .population_change_chart {
   margin-top: 10px;

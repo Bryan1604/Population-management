@@ -1,7 +1,8 @@
 <header class="page_header">
     <div class="logo">
         <img
-            src="https://play-lh.googleusercontent.com/ahJtMe0vfOlAu1XJVQ6rcaGrQBgtrEZQefHy7SXB7jpijKhu1Kkox90XDuH8RmcBOXNn"
+
+            src="/images/logo.jpg"
             class="logo_img"
         >
     </div>
