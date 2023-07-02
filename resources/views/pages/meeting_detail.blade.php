@@ -42,19 +42,19 @@
                 {{-- <img class="avt_img" src="/images/avt.jpg" alt=""> --}}
                 <div class="people-info">
                     <div class="info">
-                        <label>Title:</label>
+                        <label>Nội dung:</label>
                         <span>{{$meeting_detail->title}}</span>
                     </div>
                     <div class="info">
-                        <label>Place: </label>
+                        <label>Địa điểm: </label>
                         <span>{{$meeting_detail->place}}</span>
                     </div>
                     <div class="info">
-                        <label>Time: </label>
+                        <label>Thời gian: </label>
                         <span>{{$meeting_detail->time}}</span>
                     </div>
                     <div class="info">
-                        <label>Numbers Participant: </label>
+                        <label>Số người tham gia: </label>
                         <span>{{$meeting_detail->number_of_paticipants}}</span>
                     </div>
                     <div class="info">

@@ -40,8 +40,8 @@
                         <td>{{$item->address}}</td>
                         <td>{{$item->created_at}}</td>
                         <td>
-                            <a href="#" class="primary_button">Xem</a>
-                            <a href="#" class="primary_button">Sửa</a>
+                            <a href="{{url('household/detail/'.$item->id)}}" class="primary_button">Xem</a>
+                            <a href="{{url('household/detail/'.$item->id.'/addNewPerson')}}" class="primary_button">Sửa</a>
                             <a href="#" class="primary_button">Xóa</a>
                         </td>
                     </tr>
