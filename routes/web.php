@@ -83,6 +83,7 @@ Route::get('meeting/list', [MeetingController::class,'getAllMeeting'])->name('pa
 Route::get('meeting/detail/{id}',[MeetingController::class,'getMeetingDetail'])->name('pages.meeting_detail');
 Route::get('meeting/manage', function () {return view('pages.meeting_manage');})->name('pages.meeting_manage');
 Route::get('meeting/add', function() { return view('pages.meeting_create_form');})->name('pages.meeting_add');
+Route::post('meeting/add',[MeetingController::class,'store'])->name('pages.meeting_store');
 // Route::get('test/form', function () {
 //     return view('pages.test_form');
 // });

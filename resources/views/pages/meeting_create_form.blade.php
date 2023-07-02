@@ -18,20 +18,20 @@
         </div>
 
         <div class="form_container">
-            <form action="{{ route('meetings.store') }}"method="POST">
+            <form action="{{ url('meeting/add') }}"method="POST">
                 @csrf
 
                 {{--avt choose file--}}
                 <div class="form_group">
-                    <label for="title">Title: </label>
+                    <label for="title">Nội dung: </label>
                     <input type="text" name="title">
                 </div>
                 <div class="form_group">
-                    <label for="place">Place: </label>
+                    <label for="place">Địa điểm: </label>
                     <input type="text" name="place" >
                 </div>
                 <div class="form_group">
-                    <label for="time">Time: </label>
+                    <label for="time">Thời gian: </label>
                     <input type="datetime-local" name="time" >
                 </div>
                 <!-- <div class="form_group">
@@ -39,7 +39,7 @@
                     <input type="text" name="number_of_paticipants" >
                 </div> -->
                 <div class="form_group">
-                    <label for="status">Status: </label>
+                    <label for="status">Trạng thái: </label>
                     <input type="text" name="status">
                 </div>
                 

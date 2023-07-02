@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('meeting', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->text('title');
             $table-> dateTime('time');
-            $table->string('place');
-            $table->string('title');
+            $table->text('place');
             $table->integer('number_of_participants');
             $table->integer('status');
             $table->timestamps();

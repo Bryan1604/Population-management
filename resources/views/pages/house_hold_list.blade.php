@@ -9,7 +9,7 @@
                     <input type="search" name="search" class="search" placeholder="Search" value="{{$search}}">
                     <button type="submit" class="search_button"><i class="fas fa-search"></i></button>
                 </div>
-            </form> 
+            </form>
             
             <a href="{{ url('household/add') }}" class="primary_button">Thêm hộ khẩu</a>
         </div>

@@ -65,7 +65,7 @@ class MeetingController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validateData = $request->validate([
             'title' => 'required',
             'time' => 'required',
             'place' => 'required',
@@ -73,7 +73,13 @@ class MeetingController extends Controller
             'status' => 'required',
         ]);
   
-        Meeting::create($request->all());
+        $meeting = new Meeting();
+        $meeting->title = $validateData['title'];
+        $meeting->time = $validateData['time'];
+        $meeting->place = $validateData['place'];
+        $meeting->number_of_participants = $validateData['number_of_participants'];
+        $meeting->status = $validateData['status'] === 'Chưa diễn ra' ? 0 : 1;
+        $meeting->save();
         session()->put('message','Create complete');
         return redirect('meeting/list')->with('success','Tạo cuộc họp thành công.');
     }
